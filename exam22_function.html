@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 함수를 만드는 형식
+        // const 함수명 = function(원인(파라미터)) 
+        // const func1 = function()
+        // {
+        //     console.log("함수의 내부 코드");
+        
+        // }
+
+        // func1();
+        // func1();
+
+        //----------------------------------------------------------
+
+        const gugudan = function(dan)
+        {
+            console.log(dan + "단이 출력됨");
+
+        }
+        // 함수생성
+
+        gugudan(5);
+        gugudan(6);
+
+        // 원인(파라미터)의 개수가 여러개도 가능
+        const notebook = function(color, inch) 
+        {
+            console.log(color + "색의 " + inch + "인치 노트북이 만들어졌어요");
+            // 여기 순서는 상관 없지만 
+            // 여기서 함수 파라미터 바꾸는 식은 쓰지 말 것!!
+
+        }
+
+        // 호출 순서는 함수 선언 순서랑 같아야 함
+        notebook("빨간", 15);
+        notebook("파란", 13);
+        // 문자인 경우 '' 또는 "" 쓰는 거 제발 좀 까먹지않기!!!
+
+        // 두 수의 합을 구하는 함수
+
+        const add = function(num1,num2)
+        {
+            let sum = num1 + num2;
+            return sum; 
+            // 1. return은 함수를 종료
+            // 2. 뒤에 값이 온다면 그 값을 호출자에게 반환(return)
+            // return 뒤엔 뭘 입력해도 실행되지 않음
+            // return만 쓰면 undefined 뜸, return조차 쓰지 않아도 똑같음
+
+        }
+
+        let res = add(5,6);
+        console.log(res);
+
+    </script>
+</body>
+</html>

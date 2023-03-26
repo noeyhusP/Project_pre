@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // continue 그닥 많이 쓰이진 않음
+        let i = 0;
+        while (i <10) // 점프해 와서 7이 10보다 작은지를 비교함으로 다시 시작
+        {
+            console.log(i);
+            if ( i == 5) // i가 5가 됐을 때
+            {
+                i = 7; // i를 7로 바꿈
+                continue;
+                // 처음 루프(while(i < 10)) 로 점프함
+            }
+            i++;
+        }
+    </script> 
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1~20까지의 숫자에서 짝수의 합과 홀수의 합을 구하세요.
+
+        // 짝수합, 홀수합 변수 선언 
+        let num = 1;
+        let val = 0;
+        let evensum = 0; //짝수합 110
+        let oddsum = 0; //홀수합 100
+
+        // 합 구하는 while문 세우기
+        while (num <= 20)
+        {
+            // 짝수 걸러내는 if문 세우기
+            if (num % 2 == 0)
+            {
+                evensum = evensum + val;
+                val++;
+            }
+            else 
+            {
+                oddsum = oddsum + val;
+                val++;
+            }
+            num++; // 1씩 더해지기
+        }
+        console.log(evensum); //짝수합 출력
+        console.log(oddsum); //홀수합 출력
+
+        // for문으로 짝수합 홀수합 구하기 (검토하기)
+
+        for (i = 0; i <=20; i++)
+        {
+            if (num % 2 == 0)
+            {
+                continue;
+            }
+            evensum = evensum + val;
+            val++;
+        }
+
+
+        for (i = 0; i <=20; i++)
+        {
+            if (num % 2 == 1)
+            {
+                continue;
+            }
+            oddsum = oddsum + val;
+            val++;
+        }
+        
+        console.log(evensum); //짝수합 출력
+        console.log(oddsum); //홀수합 출력
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello HTML</h1>
+
+    <!-- script 태그가 없으면 그냥 텍스트가 출력되고 console 실행되지 않음 --
+    <!- script태그 안의 내용만이 JS엔진(v8엔진)이 실행하는 범위, 나머지는 html -->
+
+    <script>
+        console.log("Hello JavaScript");
+    // 세미콜론을 문장 끝에 안 붙이면 자바스크립트 엔진이
+    // 자동으로 붙여준다. 하지만 이 기능을 사용하지 않고
+    // 개발자가 직접 붙이는 것을 권장.
+    </script>
+     
+    <h1>Hello HTML2</h1>
+
+    <script>
+    // 가급적 한줄 주석문 사용하기
+    // ctrl + / 를 누르면 주석 토글 됨
+        console.log("Hello JavaScript2")
+    </script>
+
+    <script>
+        console.log("bbb");
+        console.log('bbb');
+    // 자바스크립트에서는 싱글코티션과 더블코티션을 같은 의미로 취급함
+    // ''를 디폴트로 쓰는게 좀 더 좋음
+    // 다른 언어들에서는 구분됨..!
+    </script>
+</body>
+</html>

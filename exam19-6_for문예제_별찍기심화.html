@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 오른쪽 정렬 별찍기
+        // 1. 빈칸 + 별이 들어갈 변수 설정
+
+        // let blank = "";
+        // let answer = "";
+
+        // for (let i = 1; i < 11; i++)
+        // {
+        //     answer = answer + "*";
+        //     for (let j = 0; j < 10 - i; j++)
+        //     {
+        //         blank = blank + " ";
+
+        //     }
+        //     console.log(blank + answer);
+        //     blank = "";
+
+        // }
+        
+        // let star = "*";
+
+        // let count = 10;
+
+        // for (let i = 0; i < 10; i++)
+        // {
+        //     // 공백을 찍는다
+        //     for (let j = 0; j < count-1; j++)
+        //     {
+        //         line = line + " ";
+        //     }
+
+        //     line = line + star;
+
+        //     console.log(line + star);
+        //     line = "";
+        //     count--;
+        // }
+        
+        let line = "";
+        let spaceCount = 9;
+        let starCount = 0;
+
+        for (let i =0; i < 10; i++)
+        {
+            // 라인에 공백 추가
+            for (let k = 0; k < spaceCount; k++)
+            {
+                line = line + " ";
+            }
+
+            starCount = 10 - spaceCount;
+            // starCount++;
+            // console.log("starCount :" +starCount);
+            // 라인에 *을 추가
+            for (let s = 0; s < starCount; s++)
+            {
+                line = line + "*";
+            }
+            spaceCount--;   
+            console.log(line);
+            line = "";
+
+        }
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>

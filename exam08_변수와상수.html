@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 데이터를 메모리에 적재(allocation) 하는 방법은 4가지 -->
+    <script>
+    // 변수 초기화 (Init)
+    var a1 = 10;
+    let a2 = 20;
+    const a3 = 30;
+    a4 = 40;
+
+    // const = 23;
+    // a3 = 30;
+    // 는 불가능. 변수 초기 선언은 처음에 식을 온전히 다 완성해서 선언해야 함
+    // a3 = 30; 은 대입식임
+
+    // 변수명으로 변수를 읽음 (read)
+    console.log("a1 : " + a1);
+    console.log("a2 : " + a2);
+    console.log("a3 : " + a3);
+    console.log("a4 : " + a4);
+
+    // 변수를 변경(write,update)
+    a1 = 20;
+    a2 = a2 + 10;
+    a3 = a3 + 1;
+    a4 = 20;
+
+    console.log("a1 : " + a1);
+    console.log("a2 : " + a2);
+    console.log("a3 : " + a3);
+    // 에러문구 Assignment to constant variable.
+    // 상수(초기화로 값을 선언 후엔 read only)라서 바꿀 수 없음
+    console.log("a4 : " + a4);
+
+    let name = "정성훈";
+    
+    nama = "정상훈";
+    // 새로운 메모리를 만들어서 대입시킴
+    // 오타를 내도 메모리 만들어서 데이터로 할당하기 때문에 이런 식으로
+    // 변수 선언 안 하고 메모리 할당하는 것은 하지 말 것
+
+    console.log(name);
+    console.log(nama);
+    // "정성훈", "정상훈" 둘 다 출력 됨
+
+    </script>
+
+    
+    
+</body>
+</html>

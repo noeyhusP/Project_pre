@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let line = "";
+        let spaceCount = 0;
+        let starCount = 10;
+
+        for (let i = 0; i < 10; i++)
+        {
+            for (let s = 0; s < spaceCount; s++) 
+            // 초기값 0이니까 첫 번째엔 실행 안 하고 넘어감
+            {
+                line = line + " ";
+                // 첫 번째엔 빈칸 없음
+            }
+
+            spaceCount = 11 - starCount;
+            // 초기값 돈 후에는 11 - 10 = 1 <spaceCount의 값이 됨
+
+            for (let k = 0; k < starCount; k++) //starCount 10이니까
+            {
+                line = line + "*";
+            }
+            // * 10개 찍힘
+
+            starCount--;   // starCount값 1씩 감소 후 첫 for문으로 돌아감
+            console.log(line); // line 찍고
+            line = ""; // line값 초기화
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

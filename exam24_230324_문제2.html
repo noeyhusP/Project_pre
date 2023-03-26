@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 사용자로부터 라인수, 타입을 입력받는다
+        let inputNum = prompt("라인 수를 입력하세요", "");
+        let typeNum = prompt("타입번호를 입력하세요","")
+
+        let linenum = Number(inputNum);
+        let type = Number(typeNum);
+
+        let star = "*";
+        let line = "";
+
+        let spaceCount = 0;
+        let starCount = linenum;
+
+
+        // 타입에 따라 삼각형을 그리는 함수를 만든다.
+        const drawType1 = function(linenum) // 왼쪽삼각형
+        {
+
+            // for (let i = 0; i < linenum; i++)
+            // {
+            //     console.log(star);
+            //     star = star + "*";
+            // }
+            // return linenum       
+
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let j = 0; j< spaceCount + 1; j++)
+                {
+                    line = line + "*";
+                }
+
+                console.log(line);
+                spaceCount++;
+                line = "";
+            }
+        }
+
+        const drawType2= function(linenum) // 오른쪽역삼각형
+        {
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let s = 0; s < spaceCount; s++) 
+                {
+                    line = line + " ";
+                }
+
+                spaceCount++;
+
+                for (let k = 0; k < starCount; k++) 
+                {
+                    line = line + "*";
+                }
+
+                starCount--;   // starCount값 1씩 감소 후 첫 for문으로 돌아감
+                console.log(line); // line 찍고
+                line = ""; // line값 초기화
+
+        }
+            return linenum
+        }
+
+        const drawType3= function(linenum) //// 왼쪽역삼각형
+        {
+            for (let i = 0; i < linenum; i++) 
+                {
+                    for (let k = 0; k < starCount; k++) 
+                        {
+                            line = line + star;
+                        }
+                    console.log(line); //라인 찍고
+                    line = ""; // line 리셋
+                    starCount = starCount - 1; //count - 1하고 첫 for문으로 다시 돌아감
+                }   
+                return linenum     
+        }
+
+        const drawType4= function(linenum) // 오른쪽삼각형
+        {
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let k = 0; k < starCount; k++)
+                {
+                    line = line + " ";
+                }
+                spaceCount++;
+
+                for (let s = 0; s < spaceCount; s++)
+                {
+                    line = line + "*";
+                }
+                // starCount--;   
+                console.log(line);
+                line = "";
+
+            }
+            return linenum           
+            
+        }
+
+        const drawType5 = function(linenum)  // 피라미드
+        {
+            for (let i =0; i < linenum; i++) 
+            {
+                for (let k = 0; k < starCount; k++)
+                {
+                    line = line + " ";
+                }
+
+                for (let s = 0; s < (spaceCount*2) + 1; s++)
+                {
+                    line = line + star;
+                }
+                spaceCount++;
+
+                console.log(line);
+                starCount--;   
+                line = "";
+            }  
+            return linenum     
+        }
+
+        // if문 또는 switch문으로 타입에 따라 삼각형 호출
+
+        switch(type)
+        {
+            case 1 : 
+                drawType1(linenum);
+                break;
+            case 2 :
+                drawType2(linenum);
+                break;
+            case 3 :
+                drawType3(linenum);
+                break;
+            case 4 :
+                drawType4(linenum);
+                break;
+            case 5 :
+                drawType5(linenum);
+                break;
+            default :
+                break;
+        }
+
+    </script>
+</body>
+</html>

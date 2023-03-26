@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let stu_name = ["김철수", 1, "박철수", 5, "최철수", 9];
+        // let stu_grade = [1, 1, 1];
+
+
+        // 배열의 선언 및 초기화 (Init)
+        let ar = [11, 22, 33, 44, 55, 66];
+
+        // 배열 읽기
+        console.log(ar[0]);
+        console.log(ar[1]);
+        console.log(ar[2]);
+        console.log(ar[3]);
+        console.log(ar[4]);
+
+        // 배열 쓰기
+        ar[0] = 111;
+        console.log(ar);
+        console.log(ar.length);
+        // ar. < .이 붙으면 그 배열에 대한 정보 를 의미함
+
+        // 배열 추가
+        ar.push(66);
+        console.log(ar);
+        console.log(ar.length);
+
+        // 배열 삭제
+        ar.pop(66);
+        console.log(ar);
+        console.log(ar.length);
+
+        // push와 똑같은 액션
+        ar[6] = 77;
+        console.log(ar);
+        console.log(ar.length);
+
+        ar[9] = 100; 
+        console.log(ar);
+        console.log(ar.length);
+        // 9번 배열까지 확장하고 100의 값을 넣었지만
+        // 값이 비어있는 배열은 비어있음 으로 나옴
+        // 하지만 그 비어있는 값까지 카운트 해서 length 나옴
+
+        // 배열의 1번째는 0번
+
+        // stu_grade의 0번째 데이터부터 끝까지 1씩 증가시켜라.
+        // 모든 언어에서 지원하는 대표적 선형 구조.
+    </script>
+    
+</body>
+</html>

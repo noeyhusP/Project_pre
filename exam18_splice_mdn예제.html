@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // mdn_array.splice 예제
+
+        // 시도해보기 
+        const months = ['Jan', 'March', 'April', 'June'];
+        months.splice(1,0, 'Feb');
+        // (1,0) 자리에 'Feb' 요소 추가
+
+        console.log(months);
+        
+        months.splice(4, 1, 'May');
+        // 4번째부터 1개의 요소를 'May'요소로 대체
+        console.log(months);
+
+
+        // 예제 1
+        var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+        console.log(myFish);
+
+        var removed = myFish.splice(2, 0, 'drum');
+        console.log(myFish);
+
+        // // 2번째부터 0개의 요소를 제거하고 'drum'요소 추가
+
+        // 예제 2
+
+        // var removed = myFish.splice(2, 0, 'drum', 'guitar');
+        // console.log(myFish);
+
+        // 2번째부터 0개의 요소를 제거하고 'drum' 'guitar' 요소 추가
+
+        // 예제 3
+        var removed = myFish.splice(3,1);
+        // 3번째부터 1개의 요소 삭제 (mandarin)
+
+        console.log(myFish);
+
+        // 예제 4
+        var removed = myFish.splice(3, 1 , 'trumphet');
+        // 3번째부터 1개의 요소 삭제 후 'trumphet' 요소 추가
+
+        console.log(myFish);
+
+        // 예제 5
+        var removed = myFish.splice(0, 2, 'parrot', 'anemone', 'blue');
+        // 0번째부터 2개의 요소 삭제 후 'parrot', 'anemone', 'blue' 요소 추가
+
+        console.log(myFish);
+
+        // 예제 6
+        var removed = myFish.splice(myFish.length - 3, 2);
+        // myFish 배열에서 3번째부터 2개 삭제
+         
+        console.log(myFish);
+
+        // 예제 7
+        var myFish2 = ['angel', 'clown', 'mandarin', 'sturgeon'];
+        console.log(myFish2);
+
+        //  var removed = myFish2.splice(-2, 1);
+        // // 0에서 뒤로 2번째 (순환) 요소에서부터 1개 요소 제거
+        //  console.log(myFish2);
+
+        // 예제 8
+        var removed = myFish2.splice(2);
+        // 2번째 요소 포함 그 뒤 모든 요소 제거
+        // = var removed = myFish2.splice(2, myFish.length - 2)
+        // (시작값, length - 시작값) = 시작값으로부터 뒤에 전체 삭제
+
+        console.log(myFish2);
+
+    </script>
+    
+</body>
+</html>

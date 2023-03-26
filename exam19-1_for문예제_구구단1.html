@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // 1. 사용자로부터 숫자를 입력 받기
+    let num = prompt("숫자를 입력하세요", "");
+    num = Number(num)
+
+    // 2. 입력받은 숫자로 구구단 식 세우기
+
+    for (i = 1; i < 10; i++)
+    {
+        console.log(num + " * " + i + " = "+ ( num * i ));
+    } 
+    
+    // 각 함수의 역할을 1개만 각각의 변수에 온전히 할당하기
+    let gop = 1; // 구구단에 곱해질 변수 따로 지정
+    for (i = 1;  i < 10; i++) // i의 역할은 루프 도는 것 하나
+    {
+        console.log(num + " * " + gop + " = " + (num * gop));
+        gop = gop + 1;
+    }
+
+    </script>
+    
+</body>
+</html>

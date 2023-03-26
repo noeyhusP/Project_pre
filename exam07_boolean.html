@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        console.log(5>4);
+        console.log(5<4);
+        console.log(5==5);
+        console.log(5===5);
+        console.log(5>=4);
+        console.log(5<=4);
+        console.log(5!=5);
+
+        console.log(5 == "5");
+        // true 라고 나옴 / 임의로 숫자 5를 문자열로 바꿔서 인식한 결과 도출
+        console.log(5 === "5");
+        // false라고 나옴.. 데이터 형태까지 일치하는지 확인
+
+        // 아래와 같은 코드는 작성하면 안 됨
+        // 사유 : readability(가독성)을 극심하게 떨어뜨리기 때문
+        // 코드의 신뢰성 또한 떨어짐
+        console.log("b" > "a");
+        // T
+        console.log("a" > "b");
+        // F
+        // 이유: 문자열 사이에서는 알파벳순서를 고려하여 결과 도출함
+        console.log("abc" > "c");
+
+        let a = 10;
+        let b = 5;
+
+        let result1 = (a >= 10) || (b < 5)  
+        // || > AND조건 (조건 둘 다 일치)
+        let result2 = (a >= 10) && (b < 5)  
+        // && > OR 조건 (조건 둘 중 하나 일치)
+
+        console.log(result1);
+        console.log(result2);
+
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // 배열의 처음부터 끝까지 (모든 요소를) 한 번씩 도는 걸 순회라고 함
+
+        for (let i = 0; i < ar.length; i++)
+        {
+            ar[i] = ar[i] + 10;
+            // 이 경우에만 i를 루프변수로 동시에 써도 됨
+            // alert(i) 로 하면 순회가 아닌 출력이므로 좋은 코드가 못 됨
+        }
+
+        console.log(ar);
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 10;
+
+        console.log(++a);
+        // 전위(앞쪽에 위치한) 단항 연산자
+        // (++a) = (a = a + 1 )
+
+        console.log(a++);
+        // (a++) = (a = a + 1 )
+        // 후위(뒷쪽에 위치한) 단항 연산자
+        // 1.a를 콘솔로그에 집어넣고 2.a를 증가시켜라
+        console.log(a); // 12가 나옴
+        // 앞의 후위연산에서 +1이 되었기 때문
+
+        // ex) a == 12;
+        a++;
+        ++a;
+        // console.log가 없어서 실행순서가 존재하지 않음 
+        // 그러므로 console.log없이 실행한 a++, ++a는 같은 값
+
+        let b = 20
+        console.log(b++ + a--); 
+        // 위와 같은 코드는 쓸 데 없는 코드이지만
+        // 정처기에 나옴 ㅡㅡ / 그치만 절대 좋은 코드가 아님
+        // b = b + 1;
+        // a = a - 1;
+        // a + b
+        // 와 같은 코드로 짜야 좋은 코드임
+    </script>
+    
+</body>
+</html>

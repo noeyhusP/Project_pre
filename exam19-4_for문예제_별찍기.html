@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 별찍기 10개
+        // 1. 1씩 증가 10번 반복하는 for문 작성
+        // 2. 한 번 돌 때 마다 * 가 출력되는데 개수 증가하기
+        let star = "*";
+
+        for (let i = 0; i < 10; i++)
+        {
+            console.log(star);
+            star = star + "*";
+        }
+
+        // for (let i = 0; i < 10; i++)
+        // {
+        //     for (let j = 0; j < i; j++)
+        //     {
+        //         console.log("*");
+        //     }
+        //     console.log("")
+        // }
+
+
+
+        // for (let i = 9; i > 0; i--)
+        // {
+        //     console.log(star);
+        //     star = star + "*";
+        // }
+
+        // var star1 = '';
+        // for (var i = 10; i >= 1; i--) 
+        // { 
+        //    for (var j = 1; j <= i; j++) { 
+        // // 변수 j 초기값 1 / j가 i 보다 작거나 같으면 / j에 증가한다.
+        // star1 += "*"; 
+        // // j가 하나 증가할때마다 star1 변수에 *를 더한다.
+        // }
+
+        // star1 += "\n"; 
+        // // j의 조건이 끝나면 줄바꿈을 해준다.
+        // }
+        // console.log(star1);
+
+        let line = "";
+        let starCount = 1;
+
+        for (let i = 0; i < num; i++)
+        {
+            for (let j = 0; j< starCount; j++)
+            {
+                line = line + "*";
+            }
+
+            console.log(line);
+            starCount++;
+            line = "";
+        }
+
+    </script>
+    
+</body>
+</html>
