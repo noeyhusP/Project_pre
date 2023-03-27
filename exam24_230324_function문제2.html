@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 사용자로부터 라인수, 타입을 입력받는다
+        let inputNum = prompt("라인수를 입력하세요", "");
+        let typeNum = prompt("타입번호를 입력하세요","")
+
+        let linenum = Number(inputNum);
+        let type = Number(typeNum);
+
+        // let spaceCount = 0;
+        // let starCount = linenum;
+
+
+        // 타입에 따라 삼각형을 그리는 함수를 만든다.
+        // 함수명!!
+        const drawTriType1 = function(linenum) // 왼쪽삼각형
+        {
+
+            // for (let i = 0; i < linenum; i++)
+            // {
+            //     console.log(star);
+            //     star = star + "*";
+            // }
+            // return linenum     
+            let star = "*";
+            let line= "";
+            let spaceCount = 0;
+            let starCount = linenum;
+
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let j = 0; j< spaceCount + 1; j++)
+                {
+                    line = line + "*";
+                }
+
+                console.log(line);
+                spaceCount++;
+                line = "";
+            }
+            return linenum;
+        }
+
+        const drawTriType2= function(linenum) // 오른쪽역삼각형
+        {
+            let star = "*";
+            let line= "";
+            let spaceCount = 0;
+            let starCount = linenum;
+
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let j = 0; j < spaceCount; j++) 
+                {
+                    line = line + " ";
+                }
+                spaceCount++;
+
+                for (let k = 0; k < starCount; k++) 
+                {
+                    line = line + "*";
+                }
+
+                starCount--;   // starCount값 1씩 감소 후 첫 for문으로 돌아감
+                console.log(line); // line 찍고
+                line = ""; // line값 초기화
+            }
+            return linenum;
+        }
+
+        const drawTriType3= function(linenum) //// 왼쪽역삼각형
+        {
+            let star = "*";
+            let line= "";
+            let spaceCount = 0;
+            let starCount = linenum;
+
+            for (let i = 0; i < linenum; i++) 
+            {
+                for (let j = 0; j < starCount; j++) 
+                {
+                    line = line + star;
+                }
+
+                console.log(line); //라인 찍고
+                line = ""; // line 리셋
+                starCount = starCount - 1; //count - 1하고 첫 for문으로 다시 돌아감
+            }   
+            return linenum;    
+        }
+
+        const drawTriType4= function(linenum) // 오른쪽삼각형
+        {
+            let star = "*";
+            let line= "";
+            let spaceCount = 0;
+            let starCount = linenum;
+
+            for (let i = 0; i < linenum; i++)
+            {
+                for (let j = 0; j < starCount; j++)
+                {
+                    line = line + " ";
+                }
+                spaceCount++;
+
+                for (let k = 0; k < spaceCount; k++)
+                {
+                    line = line + star;
+                }
+
+                console.log(line);
+                starCount--;
+                line = "";
+            }
+            return linenum;           
+        }
+
+        const drawTriType5 = function(linenum)  // 피라미드
+        {
+            let star = "*";
+            let line= "";
+            let spaceCount = 0;
+            let starCount = linenum;
+
+            for (let i =0; i < linenum; i++) 
+            {
+                for (let j = 0; j < starCount; j++)
+                {
+                    line = line + " ";
+                }
+
+                for (let k = 0; k < (spaceCount*2) + 1; k++)
+                {
+                    line = line + star;
+                }
+                spaceCount++;
+
+                console.log(line);
+                starCount--;   
+                line = "";
+            }  
+            return linenum;
+        }
+
+        // if문 또는 switch문으로 타입에 따라 삼각형 호출
+
+        switch(type)
+        {
+            case 1 : 
+                drawTriType1(linenum);
+                break;
+            case 2 :
+                drawTriType2(linenum);
+                break;
+            case 3 :
+                drawTriType3(linenum);
+                break;
+            case 4 :
+                drawTriType4(linenum);
+                break;
+            case 5 :
+                drawTriType5(linenum);
+                break;
+            default :
+                alert("숫자를 입력하세요")
+                break;
+        }
+
+    </script>
+</body>
+</html>

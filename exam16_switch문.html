@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        let res = num % 2;
+        // % > 나머지 연산 (모듈로 연산)
+        
+        // if (res == 0)
+        // {
+        //     colsole.log("짝수")
+        // }
+        // else 
+        // {
+        //     colsole.log("짝수")
+        // }
+
+        switch(res)
+        {
+            case 0 : 
+                console.log("짝수");
+                break;
+
+            case 1 :
+                console.log("홀수");
+                break;
+
+            default :
+                console.log("숫자가 아님");
+                break;
+        }
+
+        // 문법구조가 어떤 것이냐에 따라 뒤에 따라올 내용을 예측할 수 있음
+        // switch문은 특성상 스팟성으로 조건이 따라올 것을 예측할 수 있음
+    </script>
+    
+</body>
+</html>

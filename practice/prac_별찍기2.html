@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = 5; // 역삼각형의 높이
+        let stars = ''; // 별을 담을 변수
+
+        // 역삼각형의 높이만큼 반복
+        for (let i = 0; i < n; i++) {
+        // 첫 번째 줄부터 공백 개수를 하나씩 늘려가며 별 찍기
+        for (let j = 0; j < i; j++) {
+            stars += ' ';
+        }
+        // 마지막 줄부터 공백 개수를 하나씩 줄여가며 별 찍기
+        for (let k = 0; k < 2 * (n - i) - 1; k++) {
+            stars += '*';
+        }
+        // 각 줄의 별 찍기가 끝나면 줄바꿈
+        stars += '\n';
+        }
+
+        console.log(stars); // 결과 출력
+
+    </script>
+    
+</body>
+</html>

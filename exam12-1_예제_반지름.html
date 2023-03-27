@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    //사용자로부터 반지름을 입력받아 넓이를 출력(alert)하는 코드를 작성
+
+    // 주석을 IPO관점으로 작성한다.
+    // 1. 사용자로부터 반지름을 입력 받는다.
+    // 2. 반지름을 이용해서 넓이를 구한다.
+    // 2-1. 입력받은 반지름을 문자형에서 숫자형으로 형변환한다.
+    // 2-2. (상수에 3.14값을 지정한다.)
+    // 2-3. (2-1)결과를 제곱하고 거기에 상수를 곱해서 넓이를 구한다.
+    // 3. 넓이를 출력한다. (넓이는 result 입니다)
+
+    let radius = prompt("반지름을 입력하세요", "")
+    console.log(radius);
+
+    let numRadius = Number(radius);
+    const pi = 3.14;
+    let result =  (radius * radius * pi);
+
+    alert("넓이는" + result + "입니다");
+
+    // 주석대로 코딩하고 
+    // 주석대로 안 됐을 시 검토하는 과정을 가지면서 연습해야함
+
+    // 초기 답
+    // let radius = prompt("반지름을 입력하세요", "");
+    // let pi = 3.14;
+    // let numRadius = Number(radius);
+    // alert(numRadius * numRadius * pi);
+
+    // // console.log(typeof(pi));
+    // // console.log(typeof(numRadius * numRadius * pi));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2-9단까지 연속으로 출력되기 하기
+        // 1. 8번 반복문 만들기
+        let num = 2; // num 2로 선언해주기 (2단부터 9단까지) 
+
+        for (let i = 0; i < 8; i++) // for문 뒤에 ; 붙이면 실행 안 됨!!!
+        // 2. 반복할 구구단식 세우기
+        {
+            let gop = 1;
+            for (let j = 0; j < 9; j++) // for문 뒤에 ; 붙이면 실행 안 됨!!!2
+            {
+            console.log(num + " * " + gop + " = " + (num * gop));
+            gop++; // = (gop = gop + 1)
+            }
+            num++; // = (num = num + 1)
+        }
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let str1 = "abc";
+        let str2 = "def";
+        let str3 = str1 + str2;
+        let str4 = "111" + "222";
+
+        console.log(str3);
+        console.log(str4);
+        
+
+        let str5 = str1 - str2
+
+        console.log(str5);
+        // 연산(-)의 결과를 도출할 수 없을 때
+        // 결과 NaN으로 뜸
+        // Not A Number
+        // 에러가 아닌 예외(exception)
+
+        let a1 = 40;
+        let a2 = 20;
+        // 피연산자가 연산자의 성격을 정의한다. 
+        // (연산자는 피연산자의 타입을 따라감)
+        console.log(a1 + a2);
+
+        console.log(a1 + str3);
+        // 40abcdef 로 도출됨
+        // 데이터타입을 통일시키지 않아도 ex) number + string
+        // 이어붙여서 결과를 도출함
+        // 즉, 피연산자가 서로 다른 경우 
+        // 한 쪽을 강제적으로 타입을 바꾼 다음 연산한다
+        // ^ 어떻게서든 결과를 도출하려는 자바스크립트의 특징 때문 
+        // 다른언어는 데이터타입 통일 없이 식을 쓰면 에러가 뜸
+    </script>
+    
+</body>
+</html>

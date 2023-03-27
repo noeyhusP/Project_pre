@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 사용자가 id가 admit으로 입력 되면 id 입력을 종료
+
+        let id;
+
+        // while (id !== "admin") // id가 admin이 아니면 실행하는 코드
+        // {
+        //     id = prompt("관리자 아이디를 입력하세요", "");
+        // }
+
+        while(true) // 일단 계속 도는 코드
+        {
+            if (id == "admin")
+            {
+                break; 
+                // 기본값으로 계속 돌지만 id가 admin이면 break
+                // break는 가장 가까운 루프문을 빠져나가는 것
+            }
+
+            id = prompt("관리자 아이디를 입력하세요", "");
+        }
+
+        alert("환영합니다 관리자님!")
+        
+    </script>
+</body>
+</html>

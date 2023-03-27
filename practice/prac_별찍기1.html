@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const n = 10; // 역삼각형의 크기를 결정하는 변수
+    let result = '';
+
+    for (let i = n; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+        result += '*';
+    }
+    result += '\n';
+    }
+
+    console.log(result);
+    </script>
+
+    
+</body>
+</html>

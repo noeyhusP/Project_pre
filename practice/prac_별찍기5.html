@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let star = "";
+
+        for (let i = 0; i < 10; i++) 
+        {
+            // star += "*";
+            star = star + "*";
+        }
+
+        for (let i = 10; i > 0; i--) 
+        {
+            console.log(star.slice(0, i));
+            // slice 는 (n,m) 일 시 n번째 요소부터 m번째 요소까지 출력
+        }
+
+    </script>
+    
+</body>
+</html>

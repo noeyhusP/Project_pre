@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 별찍기 트리
+        // for (i = 1; i <= 10; i++)
+        // {
+        //     for (j = 0; j < 9; j++)
+        //     {
+        //         console.log(" ");
+        //     }
+        //     for (j = 0; j < 2*(i-1); j++)
+        //     {
+        //         console.log("*");
+        //     }
+        //     console.log("\n")
+        // }
+        
+        // let num = prompt("숫자를 입력하세요", "")
+        // num = Number(num)
+        // let spaceCount = num
+        let line = "";
+        let star = 0;
+
+        spaceCount = 10;
+
+        for (let i =0; i < 10; i++) // prompt입력 받으면 숫자 = num
+        {
+            for (let k = 0; k < spaceCount; k++)
+            {
+                line = line + " ";
+            }
+
+            for (let s = 0; s < (star*2) + 1; s++)
+            {
+                line = line + "*";
+            }
+            star++;
+
+            console.log(line);
+            spaceCount--;   
+            line = "";
+
+        }   
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 사용자에게 숫자 입력 받아서 그만큼 별찍기 만들기
+
+        let num = prompt("숫자를 입력하세요", "");
+        num = Number(num);
+
+        let line = "";
+        starCount = num;
+        let spaceCount = 0;
+
+        for (let i = 0; i < starCount; i++) 
+        // starCount가 아니라 num을 넣으면 아래 for문에서 num값이
+        // 바뀌어서 오기 때문에 에러가 남
+        {
+            for (let j = 0; j < spaceCount; j++) 
+            {
+                line = line + " ";
+            }
+
+            spaceCount = spaceCount + 1
+            // spaceCount++;
+
+            for (let k = 0; k < num; k++) 
+            {
+                line = line + "*";
+            }
+
+            num--;  // 여기서 num값이 바뀜
+            console.log(line); 
+            line = ""; 
+
+        }
+        // 이러한 3단 for문은 다른 언어에서도 다 지원하는 기본적 형태
+        
+    </script>
+    
+</body>
+</html>

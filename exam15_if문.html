@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 백신접종 횟수
+        // 10세 미만 : 접종 x
+        // 10 ~ 20 : 1회
+        // 21 ~ : 2회
+        let age = prompt("나이를 입력하세요", "");
+        age = Number(age);
+
+        if (age < 10)
+        {
+            alert("0회 접종")
+        }
+        else if (age >= 10, age <= 20)
+        // = else if (age >= 11 && age <= 20)
+        {
+            alert("1회 접종")
+        }
+        else
+        {
+            alert("2회 접종")
+        }
+
+    </script>
+    
+</body>
+</html>
