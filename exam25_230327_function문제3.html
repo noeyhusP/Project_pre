@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1부터 100사이의 숫자 중 소수(prime number)를 구하는 코드 작성 
+        // 소수를 console.log로 출력하고 소수의 개수도 출력하기
+
+        // 1. 공통분모 찾기 > 소수판별을 지속적으로 해야함> 소수 판별 함수 만들기
+        // 2. 구현은 나중으로 미루고, 함수 형식(Function Prototype) 만들기
+        // 3. 함수명(isPrimeNumber), 파라미터(자연수n), 리턴값(T(소수)/F(합성수)) 설정
+
+
+        // 소수의 조건 > 1과 자기자신을 제외한 다른 수로 나누어지지 않는 수
+
+        // 소수 판별 함수
+        const isPrimeNumber = function(num)
+        {
+            let j = 2;
+            for (let i = 0; i < num - 2; i++)
+            {
+                
+                if ((num % j) === 0)
+                {
+                    return false;
+                }
+
+                j++;
+            }
+            return true;
+        }
+
+        // isPrimeNumber(15);
+
+        
+        let result = [];
+        let num = 1;
+
+        for (let i = 0; i < 100; i++)
+        {
+            if (isPrimeNumber(num) === true)
+            {
+                result.push(num);
+            }
+            num++;
+
+        }
+    
+        for (let j = 0; j < result.length; j++)
+        {
+            console.log(result[j]);
+
+        }
+        console.log("소수의 개수 = " + result.length);
+
+                // 함수 만드는 방법 1
+        // 최근 방식
+        // 되도록 이 방식을 쓸 것
+        const f1 = function()
+        {
+            console.log("f1");
+
+        }
+
+        // 함수 만드는 방법 2
+        // 예전 방식
+        function f2()
+        {
+            console.log("f2");
+        }
+
+        f1();
+        f2();
+
+        // 똑같이 작동함 
+        // 단, 주의해야할 점은 두 가지를 섞어쓰지 말 것
+
+
+
+
+        // for문
+        // function printprimeNumber()
+        // {
+        //     let primeNumber = 0;
+        //     false = 0;
+        //     for (i = 2; i <= 100; i++)
+        //     {
+        //         for (let j = 2; j <= 1; j++)
+        //         {
+        //             if(i % j === 0) 
+        //             false ++;
+        //         }
+        //         if (false === 2)
+        //         // console.log(i)
+        //         {
+        //             primeNumber++;
+        //         } 
+        //         false = 0;
+        //     }
+        //     return primeNumber;
+        // }
+        // printprimtNumber();
+
+        // function primeNumber(n)
+        // {
+            
+        //     let arr = [];
+        //     for (let i = 2; i <= n; i++)
+        //     {
+        //         arr[i] = i;
+
+        //     }
+        //     for (let i= 2; i <= n; i++)
+        //     {
+        //         if (arr[i === 0])
+        //         continue;
+        //         for (let j = i + 1; j <= n; j += i)
+        //         {
+        //             arr[j] = 0;
+
+        //         }
+        //     }
+        //     let answer = [];
+        //     for (let i = 0; i <= n; i++)
+        //     {
+        //         if (arr[i] !== 0 && arr[i] !== undefined)
+        //         {
+        //             answer.push(i);
+
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        // function countprimeNumber(n)
+        // {
+        //     let count = primeNumber(n).length;
+        //     return count;
+        // }
+
+        // countprimeNumber(100);
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
