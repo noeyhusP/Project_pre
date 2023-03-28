@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ar = [11, 22, 33, 44, 55];
+
+        // const f1 = function (value, index)
+        // {
+        //     console.log(value);
+        //     console.log(index);
+        // }
+
+        // ar.forEach(f1); 
+        // // for문과 비슷한 기능
+        // // 콜백의 개념을 적용한 가장 기본적 형태
+
+        // function mycall(func)
+        // {
+        //     for (let i = 0; i < 5; i++)
+        //     {
+        //         func();
+        //     }
+        // }
+
+        // 구구단 n단 사용자로부터 입력받아 콜백으로 구현
+
+        let inputNum = prompt("숫자를 입력하세요","");
+        inputNum = Number(inputNum);
+        // dan = inputNum;
+
+        // forEach를 사용해서 구현
+
+        let gopnum = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // 곱해질 값 배열 설정
+
+        const gugudan = function (num) // 구구단 함수 만들기
+        {
+            dan = inputNum; // 입력받은 숫자 dan으로 설정
+            console.log(dan + " * " + num + " = " + dan*num);
+
+        }
+
+        gopnum.forEach(gugudan);
+
+
+
+        // // ---------------------------------------------------
+
+        // // 단 앞으로 오게 바꾸기 t1
+
+        // let dannum = [1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+
+        // const gugudan2 = function (num, value)
+        // {
+        //     num = dan;
+        //     console.log(num + " * " + dan + " = " + num*dan);
+
+        // }
+
+        // dannum.forEach(gugudan2);
+
+        // // 단 앞으로 오게 바꾸기 t2
+
+        // const func2 = function(inputNum)
+        // {
+        //     let num = 1;
+
+        //     for (let i = 0; i < 9; i++)
+        //     {
+        //         gop (inputNum, num++);
+
+        //     }
+        // }
+
+        // const gop = function (fro,end)
+        // {
+        //     console.log(fro + " * " + end + " = " + fro*end);
+
+        // }
+
+        // func2(inputNum);
+
+        // let arr = [];
+        // let number = 1;
+
+        // for (let i =0; i < 9; i++)
+        // {
+        //     arr[i] = number++;
+
+        // }
+
+        // arr.forEach();
+
+    </script>
+</body>
+</html>

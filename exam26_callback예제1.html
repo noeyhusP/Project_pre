@@ -27,8 +27,8 @@
         // 여기서는 배열arr 원소의 개수만큼 for문을 돌며 함수를 실행함
         // for문을 적지 않아도 루프를 돎
     
-        const MyForEach = function(func)
-        {
+        const MyForEach = function(func) // = 익명함수(이름이 정해지지 않은 채 생성되고)
+        {                                // 후에 이름을 붙임
             for (let i = 0; i < arr.length; i++)
             {
                 func(arr[i],i);

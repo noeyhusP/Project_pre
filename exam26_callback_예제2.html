@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 임시변수
+        // const add = function (a, b)
+        // {
+        //     return a + b;
+
+        // }
+
+        // add(4,5); // 이렇게만 코드를 짜면 리턴값을 받는 호출자가 없음
+        // // 그렇다고 리턴값이 버려지는 것이 아니라 명시적인 이름(변수명) 없이 
+        // // 임의의 이름으로 메모리블럭에 쓰여짐/ 즉, 접근성 없는 값으로 남음
+        // // 개발자는 리턴값에 접근할 수 없고 v8엔진(컴파일러)만 알 수 있게 됨> 개발자는 못 쓰게 됨
+        // // 이러한 경우를 임시변수라고 함
+        // console.log(add(4,5)); // 그래서 이렇게 해도 돌긴 함
+
+        // let res = add(4,5); // 이렇게 하면 9가 리턴된 메모리블럭은 res라는 변수에 할당됨
+
+        let dan = 5;
+        let ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        ar.forEach(function(value,index) // 임시변수를 이용해 함수시작값을 넣어줌
+        {
+            console.log( dan + " * " + value + " = " + (dan * value))
+
+        });
+
+        
+
+        // = 밑과 같음
+
+        // const gugu = function(value,index) 
+        // {
+        //     console.log( dan + " * " + value + " = " + (dan * value))
+
+        // }
+
+        // ar.forEach(gugu);
+
+
+        // = console.log(add(4,5)); 와 매커니즘이 같음
+
+
+
+    </script>
+</body>
+</html>
