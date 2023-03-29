@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 선언함수
+        function f1(a)
+        {
+            console.log("CALL f1 --" +a)
+
+        }
+
+        // 익명함수
+        const callbackProc = function(func,value)
+        {
+            func(value);
+        }
+
+        callbackProc(f1,4); //간접호출
+
+        // const fun = f1;
+
+        // f1(1);
+        // f1(2);
+        // fun(3);
+
+        // function add(a,b)
+        // {
+        //     return a + b;
+
+        // }
+
+        // const k = 1;
+        // const g = 2;
+        // add(k,g);
+
+        
+        const add = function (a, b)
+        {
+            return a + b;
+
+        }
+
+        const add_clone = add;
+        console.log(add_clone(4,5));
+
+        const add_callback = function(func)
+        {
+            console.log(func(1,5));
+        }
+
+        add_callback(add);
+
+        // 매커니즘 제대로 이해
+
+        const arr = [add];
+        console.log(arr[0](4,50)); // 확실히 이해하기
+
+        
+    </script>
+</body>
+</html>

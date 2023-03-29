@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [11, 22, 33, 44, 55];
+
+        // for (const i in values)
+        // {
+        //     console.log(values[i]);
+
+        // }
+
+        const func1 = function(value, index) //파라미터 2개를 받아서
+        {
+            console.log("value = " + value + ", index = " + index); 
+
+        }
+
+        arr.forEach(func1);
+        // forEach는 갖고 있는 원소의 개수만큼 for문을 돌며 함수를 실행함
+        // 여기서는 배열arr 원소의 개수만큼 for문을 돌며 함수를 실행함
+        // for문을 적지 않아도 루프를 돎
+    
+        const MyForEach = function(func) // = 익명함수(이름이 정해지지 않은 채 생성되고)
+        {                                // 후에 이름을 붙임
+            for (let i = 0; i < arr.length; i++)
+            {
+                func(arr[i],i);
+            }
+        }
+
+        MyForEach(func1);
+        console.log("-----------------------");
+        
+        // 구구단 n단을 callback으로 만들기
+        // forEach, MyforEach 활용
+
+        for (i = 1; i < 10; i++)
+        {
+            console.log(num + " * " + i + " = "+ ( num * i ));
+        } 
+        
+        // 각 함수의 역할을 1개만 각각의 변수에 온전히 할당하기
+        let gop = 1; // 구구단에 곱해질 변수 따로 지정
+        for (i = 1;  i < 10; i++) // i의 역할은 루프 도는 것 하나
+        {
+            console.log(num + " * " + gop + " = " + (num * gop));
+            gop = gop + 1;
+        }
+
+        const gopnum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const fivedan = function(gopnum) 
+        {
+            console.log( value + " * " + 5 + " = " + value * 5); 
+
+        }
+
+        gopnum.forEach(fivedan);
+
+
+
+        // const gugudan = function()
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 구구단 n단을 callback으로 만들기
+        // forEach, MyforEach 활용
+
+        // for (i = 1; i < 5; i++)
+        // {
+        //     console.log(num + " * " + i + " = "+ ( num * i ));
+        // } 
+        
+        // // 각 함수의 역할을 1개만 각각의 변수에 온전히 할당하기
+        // let gop = 1; // 구구단에 곱해질 변수 따로 지정
+        // for (i = 1;  i < 10; i++) // i의 역할은 루프 도는 것 하나
+        // {
+        //     console.log(num + " * " + gop + " = " + (num * gop));
+        //     gop = gop + 1;
+        // }
+
+        const gopnum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const fivedan = function(gopnum) 
+        {
+            let j = 0;
+            for (let i = 0; i < gopnum.length; i++)
+            {
+                // func(arr[i],i);
+                console.log(gopnum[j] + " * " + 5 + " = " + (gopnum[j] * 5)); 
+                j++;
+
+            }
+
+
+            // console.log( value + " * " + 5 + " = " + value * 5); 
+
+        }
+
+        fivedan(gopnum);
+
+        // gopnum.forEach(fivedan);
+
+
+    </script>
+</body>
+</html>

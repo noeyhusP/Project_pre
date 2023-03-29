@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ar = [];
+
+        // 함수명 : getMin
+        // 파라미터 : number배열
+        // 리턴값 : 최소값
+
+        // const getMin = function(ar)
+        // {
+        //     let min = ar[0];
+        //     let idx = 1;
+        //     // 1. 배열의 0번째 값을 최소값이라 가정
+        //     // 2. 배열의 1번부터 끝까지 돌면서 최소값을 찾는다
+            
+        //     for (let i = 0; i < ar.length - 1; i++)
+        //     {
+        //         if (min > ar[idx])
+        //         {
+        //             min = ar[idx];
+        //         }
+        //         idx++;
+        //     }
+        //     return min;
+        // }
+
+        // let a = [10, 20, 30, 4, 8];
+        // getMin(a);
+
+        // getMin(10,20,30,4,8);
+
+        // ...ar 파라미터 개수 제한없이 받아서 보여줌 = rest parameter
+        const getMin = function(...ar) // ...ar 파라미터 개수 제한없이 받아서 보여줌
+        {
+            let min = ar[0];
+            let idx = 1;
+            // 1. 배열의 0번째 값을 최소값이라 가정
+            // 2. 배열의 1번부터 끝까지 돌면서 최소값을 찾는다
+            
+            for (let i = 0; i < ar.length - 1; i++)
+            {
+                if (min > ar[idx])
+                {
+                    min = ar[idx];
+                }
+                idx++;
+            }
+            return min;
+        }
+
+        // const restar = function(...ar)
+        // {
+        //     console.log(ar);
+        // }
+
+
+        // restar([1,2,6,0,4]);
+
+        // 각각의 min이 찍힘
+        console.log(getMin(10,20));
+        console.log(getMin(10,20,30));
+        console.log(getMin(10,20,30,4,8));
+
+
+    </script>
+</body>
+</html>
