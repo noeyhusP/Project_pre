@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forEach & 임시변수
+        let ar = [11, 22, 33, 44, 55];
+        
+        const func = function(value, index)
+        {
+            console.log(value);
+            console.log(index);
+        }
+
+        ar.forEach(func); // 위 함수의 참조값 func을 넣어서 forEach를 돌림
+
+        console.log("------------------------------")
+
+        ar.forEach(function(value, index) 
+        {
+            console.log(value);
+            console.log(index);
+        })
+
+        // 이렇게도 가능(임시변수 사용)
+
+
+    </script>
+</body>
+</html>

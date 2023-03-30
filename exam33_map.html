@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // map 함수 개념
+
+        let ar = [11, 22, 33, 44, 55];
+
+        let arr = ar.map(function(value) // map도 callback로직으로 돌아가지만
+        // forEach는 리턴되는 값이 없는 반면에
+        {
+            return value + 10; // map은 ar의 개수만큼 (value + 10); 을 return함
+            // 그렇게 return된 값을 배열에 넣어서 arr로 리턴함
+        })
+
+        console.log(ar);
+        console.log(arr);
+
+    
+
+    </script>
+</body>
+</html>

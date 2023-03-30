@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const printMember = function (id, name, age)
+        {
+            console.log("id = " + id);
+            console.log("name = " + name);
+            console.log("age = " + age);
+        }
+
+        printMember("psh", "박수현", "nn");
+
+        const member = ["jsh","정성훈","49"]
+        
+        printMember(member[0],member[1],member[2]);
+        printMember(...member); //rest_parameter랑 다름(이거는 parameter에 ...이 붙었었고)
+        // 호출하는데에 ...이 붙음 > spread_syntax / spread_   
+
+        
+
+    </script>   
+</body>
+</html>

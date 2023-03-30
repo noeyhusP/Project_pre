@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 홀수인 요소를 추출한 뒤 그것을 2배로 만든 배열 만들기
+
+        ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        let res = ar.filter(function(value)
+        {
+            if (value % 2 === 1)
+            {
+                return true;
+
+            }
+
+                return false;
+
+        }).map(function(value) // return값을 임시변수로 받아서 임시변수.map 을 실행
+        {
+            return value * 2; 
+
+        });
+        // 임시변수를 매우 활용해서 구현한 것 (임시변수 매커니즘)
+        // 일단 매커니즘을 이해하고 난 후 이렇게 축약해서 쓰기
+
+        console.log(res);
+
+
+    </script>
+</body>
+</html>
