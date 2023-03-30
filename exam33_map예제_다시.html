@@ -10,7 +10,7 @@
     <script>
         let orgPrice = [10000, 22000, 30000, 4400, 15500];
 
-        let salePrice = [];
+        // let salePrice = [];
 
         // 1. 원래가격을 가지고 온다.
         // 2. 할인가격을 구한다.
@@ -19,41 +19,47 @@
 
 
         // 망한 함수 살리기
-        const sale = function(price)
+        const sale = function(orgPrice)
             {
-                for (let i = 0; i < 5; i++)
-                {
-                    let j = 0;
-                    let price = [];
-                    let k = orgPrice[j] - (orgPrice[j] * 0.1)
-                    orgPrice[j] = k;
-                    price.push(salePrice[j]);
+                let price = [];
+                let j = 0;
+                for (let i = 0; i < orgPrice.length; i++)
+                { 
+                    orgPrice[j] = (orgPrice[j] * 0.9)
+                    
+                    price.push(orgPrice[j]);
 
                     j++;
-                    
                 }
                 return price;
             }
-        sale(orgPrice);
+
+
         console.log(sale(orgPrice));
 
-        // const sale = function(value, index)
-        // {
-        //     return value - value * 0.1;
+        console.log("--------------------------------------")
 
-        // }
+        let orgPrice2 = [10000, 22000, 30000, 4400, 15500];
 
-        // const mmap = function(func)
-        // {
-        //     let res = [];
-        //     for (let i = 0; i < 5; i++)
-        //     res.puch(sale(orgPric[i])); 
+        const sale2 = function(value)
+        {
+            return value - value * 0.1;
+
+        }
+
+        const mmap = function(func)
+        {
+            let res = [];
+            for (let i = 0; i < 5; i++)
+            {
+                res.push(sale2(orgPrice2[i])); 
+            }
             
-        //     return res;
-        // }
+            return res;
+        }
 
-        // let salePrice = sale(mmap);
-        // console.log(salePrice);
+        let salePrice = mmap(sale2);
+        console.log(salePrice);
 
     </script>
 </body>
