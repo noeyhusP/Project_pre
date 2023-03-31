@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let 환자 = {
+            name : "정성훈",
+            age : 49
+
+        };
+
+        console.log(환자);
+        환자.age = 50; // 값을 바꾸는 법
+
+        환자.bloodtype  = "A"; // 값을 추가하는 법
+        // .뒤의 필드가 존재하지 않는 필드면 알아서 추가해서 값을 형성함
+
+
+        console.log(환자);
+
+        delete 환자.age;
+        console.log(환자);       
+        
+        (function(){
+            const patient1 = {
+                name : "정성훈",
+                disease : "감기",
+
+                getDiseaseName : function(){
+                    return patient1.disease;
+                    // = return this.disease;
+
+                }
+            }});
+
+        console.log(patient1.getDiseaseName());
+
+        // 오류 해결하기
+
+    </script>
+</body>
+</html>

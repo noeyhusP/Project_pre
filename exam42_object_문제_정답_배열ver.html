@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function()
+        {
+            const getAverage = function(grade)
+                    {
+                        let sc = this.score[grade-1];
+                        let average = (sc[0] + sc[1] + sc[2]) / 3;
+
+                        return average
+
+                    }
+
+            const getTotal = function(grade)
+                    {
+                        let sc = this.score[grade-1];
+                        let total = sc[0] + sc[1] + sc[2];
+
+                        return total 
+
+                    }
+
+            let admin =
+            {
+                student1 : 
+                {
+                    name : "A",
+                    grade : 2,
+                    school : "school",
+                    
+                    
+                    score : [[80,10,67],[87,100,40],[75,46,89]],
+                    average : getAverage,
+                    total : getTotal 
+                    
+                },
+                student2 : 
+                {
+                    name : "B",
+                    grade : 1,
+                    school : "school",
+                    
+                    
+                    score : [[45,62,66],[67,77,25],[66,33,74]],
+                    average : getAverage,
+                    total : getTotal 
+                    
+                },
+                student3 : 
+                {
+                    name : "C",
+                    grade : 3,
+                    school : "school",
+                    
+                    
+                    score : [[100,100,100],[100,100,100],[100,100,100]],
+                    average : getAverage,
+                    total : getTotal 
+                    
+                },
+                student4 : 
+                {
+                    name : "D",
+                    grade : 3,
+                    school : "school",
+                    
+                    
+                    score : [[100,100,100],[100,100,100],[100,100,100]],
+                    average : getAverage,
+                    total : getTotal 
+                    
+                },
+                student5 : 
+                {
+                    name : "E",
+                    grade : 2,
+                    school : "school",
+                    
+                    
+                    score : [[100,100,100],[100,100,100],[100,100,100]],
+                    average : getAverage,
+                    total : getTotal 
+                    
+                }
+                }
+                console.log(admin.student2.name + "의 평균은 " + admin.student2.average(2) + "입니다.")
+                console.log(admin.student2.name + "의 총점은 " + admin.student2.total(1) + "입니다.")
+            })();
+
+    </script>
+</body>
+</html>

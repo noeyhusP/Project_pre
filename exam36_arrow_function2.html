@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 홀수인 요소를 추출한 뒤 그것을 2배로 만든 배열 만들기
+
+    // 본 코드
+
+    ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    let m = ar.filter(function(value)
+    {
+        if (value % 2 === 1)
+        {
+            return true;
+
+        }
+
+    });
+
+    console.log(m);
+
+    // --------------------------------------------------------
+
+    // 화살표함수 축약코드
+
+    ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    let k = ar.filter((value)=> (value % 2 === 1));
+
+    //function 없어지고 {} 없어지고 if 없어짐  
+    // 그리고 !! 한 줄 !! 일때는 return도 없애버릴 수 있음
+
+    console.log(k);
+
+    // 이렇게까지 줄여질 수 있는데 제대로 이해하고 줄여야하며
+    // 이건 sugar code이므로 좋은 코드는 아님
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function()
+        {
+            const getSum = function()
+            {
+                return this.kor + this.eng + this.math;
+
+            }
+
+            const getArg = function()
+            {
+                return (this.kor + this.eng + this.math) / 3;
+
+            }
+
+            let admin =
+            {
+                student1 : 
+                {
+                    name : "A",
+                    grade : 3,
+                    school : "A_school",
+
+                    score1 : {
+                        kor : 100,
+                        eng : 80,
+                        math : 50,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score2 : {
+                        kor : 90,
+                        eng : 70,
+                        math : 10,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score3 : {
+                        kor : 80,
+                        eng : 90,
+                        math : 30,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                },
+                student2 : 
+                {
+                    name : "B",
+                    grade : 3,
+                    school : "B_school",
+
+                    score1 : {
+                        kor : 30,
+                        eng : 50,
+                        math : 20,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score2 : {
+                        kor : 30,
+                        eng : 40,
+                        math : 10,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score3 : {
+                        kor : 20,
+                        eng : 30,
+                        math : 10,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                },
+                student3 : 
+                {
+                    name : "C",
+                    grade : 3,
+                    school : "C_school",
+
+                    score1 : {
+                        kor : 50,
+                        eng : 70,
+                        math : 100,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score2 : {
+                        kor : 40,
+                        eng : 50,
+                        math : 90,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score3 : {
+                        kor : 70,
+                        eng : 60,
+                        math : 90,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                },
+                student4 : 
+                {
+                    name : "D",
+                    grade : 3,
+                    school : "D_school",
+
+                    score1 : {
+                        kor : 50,
+                        eng : 80,
+                        math : 70,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score2 : {
+                        kor : 70,
+                        eng : 60,
+                        math : 70,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score3 : {
+                        kor : 80,
+                        eng : 70,
+                        math : 70,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                },
+                student5 : 
+                {
+                    name : "E",
+                    grade : 3,
+                    school : "E_school",
+
+                    score1 : {
+                        kor : 70,
+                        eng : 80,
+                        math : 80,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score2 : {
+                        kor : 40,
+                        eng : 60,
+                        math : 80,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                    score3 : {
+                        kor : 70,
+                        eng : 60,
+                        math : 70,
+                        sum : getSum,
+                        arg : getArg
+                    },
+                }};
+                console.log(admin.student2.name + "의 " + admin.student2.grade + "학년 평균은 " + admin.student2.score1.arg() + "입니다.")
+                console.log(admin.student2.name + "의 " + admin.student2.grade + "학년 총점은 " + admin.student2.score1.sum() + "입니다.")
+            })();
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function()
+        {
+            let admin =
+            {
+                student1 : 
+                {
+                    name : "name",
+                    grade : 3,
+                    school : "school",
+                    
+                    kor : 100,
+                    eng : 100,
+                    math : 100,
+                    
+                    get_average : function()
+                    {
+                        return (this.kor + this.eng + this.math) / 3;
+
+                    },
+
+                    get_total : function()
+                    {
+                        return this.kor + this.eng + this.math;
+
+                    }
+                }}
+                console.log(admin.student1.get_average());
+                console.log(admin.student1.get_total());
+            })();
+    </script>
+</body>
+</html>

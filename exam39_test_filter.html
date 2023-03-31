@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 주어진 배열에서 1) 홀수만 추출 2) 100이하의 수만 추출
+        // 3) 5로 나눈 나머지가 0인 수 4) 즉시호출함수로 구현
+        // 코드 작성 (filter함수)
+
+        // re : 25, 75, 5
+
+        (function(filter)
+        {
+            let data = [230, 25, 75, 50, 103, 24, 5, 77, 60, 100];
+            let res = data.filter(function(value)
+            {
+                return (value % 2 === 1);
+            }).filter(function(value)
+            {
+                return (value < 100);
+            }).filter(function(value)
+            {
+                return (value % 5 === 0);
+            })
+            console.log("res :", res);
+        })();
+
+        // 화살표함수 ver
+        
+        (function(filter)
+        {
+            let data = [230, 25, 75, 50, 103, 24, 5, 77, 60, 100];
+            let res = data.filter((value)=>(value % 2 === 1))
+            .filter((value)=>(value < 100))
+            .filter((value)=>(value % 5 === 0));
+            console.log("res :", res);
+        })();
+
+        // 화살표 함수는 항상 정석코딩 후에 줄이면서 해보기
+
+    </script>
+</body>
+</html>

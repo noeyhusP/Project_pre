@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 동시에 한 페이지를 코딩할 경우 전역변수가 겹치는 경우를 대비해
+        // 1. 각각 함수를 따로 만들어 그 안에 코딩을 하고 합치는 경우
+        const jsh = function()
+        {
+            let pi = 3.14;
+            let ar = [1, 2, 3, 4];
+
+            const my = function()
+            {
+                console.log("정성훈");
+
+            }
+            my();
+
+            console.log(pi);
+
+        }
+
+        jsh();
+    </script>
+    
+    <script>
+        const kcs = function()
+        {
+            let pi = 3.14;
+            let ar = [1, 2, 3, 4];
+
+            const my = function()
+            {
+                console.log("김철수");
+
+            }
+            my();
+
+            console.log(pi);
+            
+        }
+
+        kcs();
+            
+    </script>
+
+<script>
+    // 동시에 한 페이지를 코딩할 경우 전역변수가 겹치는 경우를 대비해
+    // 2. 각각 함수를 따로 만들어 그 안에 코딩을 하고 합치는 경우
+    (function(){})
+    // 위와같이 ()를 붙여주면- const f1 = function(){} 으로 알아서 판단함
+    // 이유 : v8엔진은 ()의 우선순위를 높게 판단함
+    (function(){})(); // 여기에 ();까지 붙여주면 함수로 판단하고 실행함
+
+    (function(){console.log("Hello")})(); //즉시실행(호출)함수 
+
+
+</script>
+</body>
+</html>
