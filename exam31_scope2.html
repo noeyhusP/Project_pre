@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const f1 = function()
+        // {
+        //     let a = 10;
+
+        //     if (a === 10)
+        //     {
+        //         let k = 1;
+        //         console.log(k);
+        //         console.log(a);
+
+        //     }
+        // }
+        // f1();
+
+        // console.log(k); // if블럭에서 선언된 것이기 때문에 if블럭을 빠져나온 후엔
+        // 유효하지 않음 (k is not defined)
+
+
+        // const myFunction = function(func)
+        // // func 은 함수 내 변수이기에 stack에 잡힘
+        // {
+        //     func(); // 콜백방식 호출
+        // }
+
+        // const f1 = function()
+        // {
+
+        //     console.log("f1");
+            
+        // }
+
+        // myFunction(f1);
+        // // myFunction의 변수 func에 f1(const f1의 시작정보가 담긴 참조값)이 파라미터로 대입되면서
+        // // func = f1이 되고 f1에 할당된 f1함수의 메모리 시작정보로 접근하는 매커니즘 
+
+
+        // f1();
+
+        // 그러므로 myFunction(f1); 과 f1(); 은 동일하게 실행
+
+        
+        // const myFunction2 = function()
+        // // func 은 함수 내 변수이기에 stack에 잡힘
+        // { 
+        //     const f2 = function() // 함수 객체는 기본적으로 전역영역에 생김
+        //     {
+
+        //         console.log("f2");
+        //     }
+        //     f2();
+        // }
+
+
+        // myFunction2();
+
+        // const f2 = function()
+        // {
+
+        //     console.log("f2");
+            
+        // }
+
+        // let k = [1, 2, 3];
+
+        function a1()
+        {
+            // let a = [1, 2, 3]; 
+            // a는 stack에, [1, 2, 3]은 heap에 할당
+            // console.log(a);
+
+            const a = function () // a에 함수객체(익명함수)를 참조시키면 함수객체를 참조할 수 있는 
+            // 참조변수가 됨
+            {
+                console.log("abc");
+
+            }
+            // a(); // 함수가 호출됨
+            return a;
+        }
+
+        // a1();
+
+        let ff = a1();
+        ff();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

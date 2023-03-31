@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let ar = [10, 20];
+        // let br = ar;
+
+        // br[0]= 30;
+
+        // console.log(ar[0]);     // 30
+        // console.log(br[0]);     // 30
+
+        let a = 10;
+        let b = 20;
+
+        let res = add(a, b);
+        // 값이 들어갔기 때문에 순서가 여기로 와도 존재함
+
+        // console.log(res);
+        // Cannot access 'res' before initialization > res는 전역영역에 올라가 있지만
+        // 초기화 전에는 접근할 수 없음
+
+        function add(a,b)
+        {
+            let res = a + b
+            return res
+        }
+
+        // let res = add(a, b);
+
+        console.log(res);
+    </script>   
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        // const f1 = function()
+        // {
+        //     console.log(i); // 처음에 전체 코드를 훑을 때 나중에 변수가 선언되는 것을
+        //     // 보고 먼저 변수를 생성해버려서 이 위치에 변수를 찍어봐도 undefined로 존재함
+        //     // = hoisting
+        //     for (var i =0; i <5; i++)
+        //     // for (let i =0; i <5; i++) // let은 i 선언을 인식하지 못함
+        //     {
+        //         console.log(i);
+
+        //     }
+        //     console.log("-------------")
+        //     console.log(i); // 위의 영역을 벗어나도 함수가 유효하기 때문에 값이 도출됨
+        // }
+        // f1();
+
+        // 자바스크립트의 함수레벨 scope에 의해 함수가 어디에서 생성되든 유효한 것으로 작용함 
+        // var은 함수레벨 scope, let은 블럭레벨 scope 
+
+        // const f2 = function()
+        // {
+        //     let i = 0;
+        //     for (let i =0; i <5; i++)
+        //     // for (let i =0; i <5; i++) // let은 i 선언을 인식하지 못함
+        //     {
+        //         console.log(i);
+
+        //     }
+        //     console.log("-------------")
+        //     console.log(i); // 블럭레벨scope에 의해 for문 내에서의 i는 유효성을 잃고
+        //     // for문 위에 선언된 i의 값이 도출됨
+        // }
+        // f2();
+
+        const f3 = function()
+        {
+            let i = 0;
+            for (i =0; i <5; i++) // i가 따로 선언되지 않았으므로 위의 블럭으로 올라가 i를 가져옴
+            {
+                console.log(i);
+
+            }
+            console.log("-------------")
+            console.log(i);
+        }
+
+        f3();
+
+        // 위의 이유들로 함수레벨 scope는 좋은 코드가 되지 못 함 > var사용을 자제하는 이유
+
+   </script> 
+</body>
+</html>

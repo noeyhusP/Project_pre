@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const regMember = function(id, pw, name, job = "no job")
+        // job의 디폴트값이 no job이 되는 것
+        {
+            console.log("DB에 아이디 저장 : " + id);
+            console.log("DB에 패스워드 저장 : " + pw);
+            console.log("DB에 이름 저장 : " + name);
+            if (job !== "no job")
+            {
+                console.log("DB에 직업 저장 : " + job);
+            }
+        }
+
+        regMember("jsh","1111","정성훈","강사");
+
+        regMember
+    </script>
+</body>
+</html>

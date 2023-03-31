@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. for문을 이용한 salePrice 구하기
+
+        let orgPrice = [10000, 22000, 30000, 4400, 15500];
+        let salePriceFor = [];
+
+        for (let i = 0; i < orgPrice.length; i++)
+        {
+            salePriceFor.push(orgPrice[i] * 0.9);
+            // = salePriceFor[i] = orgPrice[i] * 0.9;
+
+        }
+
+        console.log(salePriceFor);
+
+
+        // 2. map을 이용한 salePrice 구하기
+
+        let salePriceMap = orgPrice.map(function(value) // (orgPrice).map 이면 ()안의 배열이
+        // 밑의 식을 거치면서 돌고 리턴됨. 즉, orgPrice배열의 인덱스 요소가 한 번씩 돌면서
+
+        {
+            return value * 0.9; // value(인덱스 요소) * 0.9 를 배열의 길이만큼 계산 후
+            // 그 값을 리턴해서 새 배열에 리턴값을 넣는다
+
+        });
+
+        console.log(salePriceMap); // 위에서 리턴된 값이 들어간 새 배열을 console.log로 찍음
+
+        // for문 활용 Callback ver.
+
+        
+
+        const discount = function(value)
+        {
+            return value * 0.9;
+
+        }
+
+        const sale2 = function(func)
+        {
+            let salePrice2 = [];
+            for (let i = 0; i < orgPrice.length; i++)
+            {
+            salePrice2.push(func(orgPrice[i]));
+            }
+            return salePrice2;
+
+        }
+
+        let salePrice2 = sale2(discount);
+        console.log(salePrice2);
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

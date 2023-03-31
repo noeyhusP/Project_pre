@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 임시변수 활용 예제
+        const f1 = function()
+        {
+            return [1,2];
+
+        }
+
+        f1();
+        console.log(f1());
+        console.log(f1().length); // 임시변수 생성해서 length를 구한 것
+        // > f1이 리턴한 값에다가 .length 한 것
+        // > f1이 리턴한 값을 임시변수로 만든 후 그것의 length를 구한 것
+        // console.log(5q42ap(임시변수).length) 의 형태로 호출함
+    </script>
+</body>
+</html>
