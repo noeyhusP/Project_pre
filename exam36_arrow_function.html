@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -38,4 +39,46 @@
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 화살표 함수(this)
+        
+        ar = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        let res = ar.filter((value) => // function이라는 문법을 지우고 => 가 그 뜻을 대체함
+        {
+            if (value % 2 === 1)
+            {
+
+                return true;
+
+            }
+
+                return false;
+
+        });
+
+        console.log(res);
+        // 돌아감
+
+        const f1 = function()
+        { 
+
+        }
+
+        console.log(typeof(ar)); // object임
+        console.log(typeof(f1)); // function = object임
+
+    </script>
+</body>
+>>>>>>> a423f72c53534fec56645c3bc7124369b623d4c9
 </html>

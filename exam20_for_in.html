@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -44,4 +45,52 @@
 
     </script>   
 </body>
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const job = ["세수", "일지검토", "선풍기청소", "병원가기"];
+
+        // for문으로 job배열을 순회
+        for (let i = 0; i < job.length; i++)
+        // for문의 실행명령이 한 줄인 경우에는 {} 생략 가능
+        // 그래서 한 줄일 때 for문 뒤에 ;이 붙으면 아무것도 실행되지 않는 에러 남
+        {
+            console.log(job[i]);
+        }
+
+        console.log("--------------------------------");
+
+        // 순회 전용 for문 = for-in문 (const를 사용)
+        // 배열 안 요소를 무조건 순회해야 하기 때문에 임의로 요소값을
+        // 바꿀 수 없도록 readonly 함수 const를 써야 함
+        // const x 는 요소를 한 번 다 돌 때 마다 초기화 하기 때문에 ㄱㅊ 
+        // for-in은 인덱스(요소)가 넘어옴
+        for (let j in job)
+        {
+            console.log(job[j]);
+        }
+
+        console.log("--------------------------------");
+        // for-of 문으로 배열을 순회
+        // for-of는 값이 넘어옴
+        // for (const nn of 배열이름) > 선언된 배열의 요소를 순회함
+        // 결국 for-in이랑 똑같은듯..?
+        for (const todo of job)
+        {
+            console.log(todo);
+        }
+
+        // for-in, for-of 둘 다 배열을 다룰 때 씀 > 특히 for-in
+
+    </script>   
+</body>
+>>>>>>> a423f72c53534fec56645c3bc7124369b623d4c9
 </html>
