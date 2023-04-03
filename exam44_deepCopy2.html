@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ar1 = [1, 2, 3, 4, 5];
+        const ar2 = [...ar1];
+        const ar3 = [11, 22, ...ar1]; // 이렇게도 가능
+        // spread연산자를 이용
+
+        ar1[0] = 11;
+
+        console.log(ar1);
+        console.log(ar2);
+        console.log(ar3);
+
+        const obj1 = {
+            name : "홍길동",
+            age : 28,
+            address : "인왕산기슭"
+
+        }
+
+
+        // obj1 얕은복사
+
+        const obj2 = obj1;
+
+        // obj1 깊은복사
+
+        // const obj3 = deepCopyobj(obj2);
+
+        // const deepCopyobj = function(obj)
+        // {
+        //         return this.obj
+
+        // }
+
+        // const deepCopyobj = function(obj)
+        // {
+        //     let obj3 = {};
+
+        //     for (let key in obj) {
+        //         if (typeof obj[key] === 'object') {
+        //             obj3[key] = iscopyObj(obj[key]);
+        //         } 
+        //         else {
+        //             obj3[key] = obj[key];
+        //         }
+        //     }
+
+        //     return obj3
+        // }
+
+        // for in 반복문
+
+        let value;
+
+        for (const key in obj1)
+        {
+            console.log(key); 
+            console.log(typeof(key)); 
+            value = obj1[key]; 
+            console.log(value);
+
+        }
+
+        let newObject = {};
+        for (const key in obj1)
+        {
+            // value = obj1[key]; 
+            newObject[key] = obj1[key];
+            // 이렇게 하면 추가됨
+
+        }
+
+        console.log(newObject);
+
+
+        // 다시 제대로 이해하기...
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello </h1>
+
+    <button>Turn Red</button>
+
+    <script>
+        const h1Element = document.querySelector("h1");
+
+        const btnElement = document.querySelector("button");
+        // DOM을 찾는 코드
+        // query = 질문한다
+
+        btnElement.addEventListener("click", function(){
+            h1Element.style.color = "red";
+        });
+        // DOM을 제어하는 코드
+        // 버튼에 콜백매커니즘으로 명령을 붙임
+
+        // 밑과 똑같은거임
+        // const callback = function()
+        // {
+        //     h1Element.style.color = "red"; }
+
+        // btnElement.addEventListener("click", callback);
+
+    </script>
+</body>
+</html>

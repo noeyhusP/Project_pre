@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 변수 선언(with 초기화)
+        // 일반적 방식
+        // let a = 10; 
+        // let b = 20;
+        
+        // 다른 방식 (변수의 다중 선언)
+        let [a, b] = [10, 20];
+        // 이름이 안 붙여지면 배열이 아님  
+
+
+        
+        console.log(a);
+        console.log(b);
+
+        console.log(typeof(a));
+        console.log(typeof(b)); // 둘 다 number로 나옴
+
+        [a, b] = [30, 40]; // 이것도 가능, 리액트&노드JS에서도 쓰이는 방식
+
+        console.log(a);
+        console.log(b); // 30, 40이 나옴
+
+        // 2. 객체를 이용해서 변수의 다중선언을 만들 수 있다
+
+        const obj = {
+            name : "홍길동",
+            age : 29
+
+        };
+
+        // let name = obj.name;
+        // let age = obj.age;
+
+        let [name, age] = [obj.name, obj.age]; 
+        // 이렇게도 가능
+
+        // let {name, age} = obj; 
+        // {} 안의 네임과 obj에 같은 네임의 필드가 있으면 자동으로 같게 할당
+        // 많이 쓰이는 방식 (협업할 땐 어짜피 같게 처리해야 편하기 때문)
+
+        console.log(name);
+        console.log(age);
+
+        // 위 코드의 조건 = obj의 필드명과 변수명이 반드시 같아야 함
+
+        // 외부 변수명과 obj의 attribute명이 다른 경우
+        // let user_name = obj.name;
+        // let user_age = obj.age;
+        // 걍 이렇게 해야함
+
+    </script>
+</body>
+</html>

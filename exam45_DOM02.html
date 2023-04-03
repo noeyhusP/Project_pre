@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <button>Turn Red</button>
+
+    <script>
+        // document 는 최상위 객체
+        // document의 addEventListner 라는 메서드를 호출한 것
+        // 'DOMContentLoaded' 라는 이벤트가 나올 때 () 속 함수를 호출시키라는 명령어
+
+        document.addEventListener('DOMContentLoaded', () => {});
+
+        // 밑의 코드와 같음
+
+        // const OnLoaded = function (){}
+        // document.addEventListener('DOMContentLoaded',OnLoaded);
+
+        // 즉, document 오브젝트에 'DOMContentLoaded' 라는 이벤트가 발생하면 
+        // () 속 함수를 호출 및 실행하는 것을 addEventListener 라는 함수로 명령 및 실행
+
+    </script>
+</body>
+</html>

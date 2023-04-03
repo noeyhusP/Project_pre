@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 두 수를 서로 바꾸기 (swap)
+        // 메모리를 바꾸거나 옮길 때는 무조건 백업절차를 거쳐야 함
+        // 각 메모리에 들어있는 값이 얼마인지 모를 수 있기 때문
+        // ex) a와 b를 바꾼다면 a>c b>a c>b 의 절차를 거쳐야 함
+
+        // 사용자에게 2개의 값을 입력 받아서
+
+        // 사용자로부터 두 수 입력받기
+        let num1 = prompt("첫 번째 숫자를 입력하세요","");
+        let num2 = prompt("두 번째 숫자를 입력하세요","");
+
+        console.log("첫 번째 숫자는 " + num1 + " 두 번째 숫자는 " + num2 + " 입니다.");
+
+        // 두 수 swap
+        let num3;
+
+        num3 = num1;
+        num1 = num2;
+        num2 = num3;
+        console.log("바꾼 후, 첫 번째 숫자는 " + num1 + " 두 번째 숫자는 " + num2 + " 입니다.");
+
+        // console.log(num1);
+        // console.log(num2);
+
+
+        let [a, b] = [10, 20];
+
+        console.log(a);
+        console.log(b);    
+
+
+        [a, b] = [b, a]; // 이렇게도 swap 가능, 자주 쓰임
+        // 걍 특수한 경우라고 생각하기 (JS에서 알아서 독립적으로 작동함)
+        // 즉, 쉽게 그냥 동시에 일어난다고 생각하기
+
+        console.log(a);
+        console.log(b);         
+
+        // 가능한 이유 : 왼쪽(l-value) [a, b]는 변수명이고 
+        // 오른쪽(r-value) [b, a]는 [20, 10]이기 때문
+
+    </script>
+</body>
+</html>
