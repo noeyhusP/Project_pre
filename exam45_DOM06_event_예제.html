@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <button>Change Text</button>
+
+    <script>
+        // 한 번 누르면 Hello, 한 번 더 누르면 Welcome으로 돌아오는
+        // toggling 되는 함수 만들기
+
+        (function(){
+            
+            const h1Element = document.querySelector("h1");
+            const btnChange = document.querySelector("button");
+
+            let bFlagHello = true;  // 대소문자 유의하기
+            btnChange.addEventListener("click",()=> 
+            {
+                if (bFlagHello === true)
+                {
+                    h1Element.textContent = "Welcome";
+                    bFlagHello = false;
+
+                }
+                else
+                {
+                    h1Element.textContent = "Hello";
+                    bFlagHello = true;
+            }});
+        })();
+
+    </script>
+</body>
+</html>

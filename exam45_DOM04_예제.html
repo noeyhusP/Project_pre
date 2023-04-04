@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="para">
+        죽는 날까지 하늘을 우러러<br>
+        한 점 부끄럼이 없기를,<br>
+        잎새에 이는 바람에도<br>
+        나는 괴로워했다.<br>
+        별을 노래하는 마음으로<br>
+        모든 죽어가는 것을 사랑해야지.<br>
+        그리고 나한테 주어진 길을<br>
+        걸어가야겠다.<br>
+        <br>
+        오늘 밤에도 별이 바람에 스치운다.
+    </p>
+    <button onclick="changeColor('blue');">blue</button>
+    <button onclick="changeColor('red');">red</button>
+    <!-- 이게 좋은 방법은 아니지만 알아야 함!! -->
+
+    <!-- <button onclick="changeColor("blue");">blue</button> -->
+    <!-- 위의 코드같은 경우 때문에 (오류남) 자바스크립트에서는 홑따옴표를 쓰는 게 일반적 -->
+
+    <script>
+
+        // // Old Style(ES5)
+        // function changeColor(newColor) {
+        // var elem = document.getElementById('para');
+        // elem.style.color = newColor;
+        // }
+
+        // New Style(ES6)
+        const changeColor = function(newColor) {
+            let elem = document.getElementById('para');
+            // 자바스크립트에서는 홑따옴표를 쓰는 게 일반적
+            elem.style.color= newColor;
+
+        }
+
+    </script>
+</body>
+</html>

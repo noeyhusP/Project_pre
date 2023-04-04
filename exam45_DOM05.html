@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <h1>Welcome</h1>
+    <h1>Hi</h1>
+
+    <script>
+    (function(){
+        const $h1 = document.getElementsByTagName("h1");
+
+        $h1[0].style.color = "red";
+        $h1[1].style.color = "blue";
+        $h1[2].style.color = "aqua";
+        // h1이 하나가 아니라 여러개 일 수도 있기 때문에
+        // $태그네임[n]로 (배열처럼 쓰는 자료구조) 바꾸고자 하는 element의 번호를 붙여줘야함 
+        // Elements라고 이름 붙여진 만큼 element의 집합이 날라온다는 가정 하에 작동함 
+
+        // h1 각각이 아니라 모든 코드를 동일한 색으로 바꾸고 싶을 때
+        // const h1Set = document.getElementsByTagName("h1");
+        // for (let i = 0; i < h1Set.length; i++)
+        // {
+        //     h1Set[i].style.color = "red";
+
+        // }
+
+        // OR
+        const h1Set = document.getElementsByTagName("h1");
+
+        // const h1Set = document.getElementsByTagName("*");
+        // *를 활용해서 전체 태그를 선택
+
+        // const $h1Set = [...h1Set];
+        [...h1Set].forEach(function(value) // 임시변수 활용
+        {
+            value.style.color = "red";
+
+        });
+
+        [...h1Set].forEach((value) => {value.style.color = "red" });
+        // 임시변수, 화살표함수 활용
+
+        // 그냥 h1Set은 배열이 아니므로 [...h1Set] > spread함수로 배열으로 만들어줌
+        // const $h1Set = [...h1Set]; 이렇게 먼저 선언해주고 $h1Set.forEach로 만들어줘도 됨
+
+    })();
+
+    </script>
+</body>
+</html>

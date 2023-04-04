@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* h1 { color : royalblue;}  */
+        /* html을 제어하는 가장 기본적인 방법 > css 셀렉터 활용 */
+ 
+         /* .cls_msg {
+            color : aqua;
+        } */
+        /* 아이디 태그 > #id */
+        /* # 없이 id 이름만 하면 태그가 됨
+        클래스 태그 > .클래스이름 */
+
+    </style>
+</head>
+<body>
+    <h1 id = "msg" class = "cls_msg">Hello</h1>
+
+    <button>Turn Red</button>
+
+    <script>
+        (function(){
+        const h1Elem = document.querySelector("#msg"); //querySelector에게 h1을 찾아달라고 요청
+        // 가장 가까운 것의 h1을 찾음 > h1의 참조값을 리턴해옴
+
+        // console.log(h1Elem); //// h1은 heap에 있으므로 참조값을 가지고 옴
+        // 참조값 중 수 많은 정보중에 가장 중요한 tag와 element를 가지고 옴
+        // > <h1>Hello</h1>출력
+
+        h1Elem.style.color = "aqua";
+
+        })();
+            
+    </script>
+</body>
+</html>

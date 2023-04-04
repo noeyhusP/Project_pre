@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class = "fruit">Apple</li>
+        <li class = "fruit">Orange</li>
+        <li class = "fruit">Banana</li>
+    </ul>
+    <script>
+
+        // li 태그의 내용을 빨간색으로 바꾸기
+        // 단 forEach함수를 이용하기
+
+        // (function(){
+        //     const liFruit = document.getElementsByClassName('fruit');
+
+        //     // 방법 1 (임시변수 활용ver)
+        //     //     [...liFruit].forEach(function(value)
+        //     // {
+        //     //     value.style.color = "red";
+
+        //     // });
+
+        //     // 방법 2 (임시변수 & 화살표 축약ver)
+            
+        //     [...liFruit].forEach((value) => {value.style.color = "red" });
+
+        // })();
+
+
+        // querySelectorAll(); 사용
+
+        (function(){
+            const liFruit = document.querySelectorAll(".fruit");
+            // .클래스명 으로 갖고 오는 방법
+            // const liFruit = document.querySelectorAll("li");
+            // li태그로 갖고 오는 방법
+
+            // 방법 1 (임시변수 활용ver)
+            //     [...liFruit].forEach(function(value)
+            // {
+            //     value.style.color = "red";
+
+            // });
+
+            // 방법 2 (임시변수 & 화살표 축약ver)
+            
+            [...liFruit].forEach((value) => {value.style.color = "red" });
+
+        })();
+
+    </script>
+</body>
+</html>

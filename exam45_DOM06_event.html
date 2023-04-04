@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <button>Change Color</button>
+
+    <script>
+
+       (function(){
+
+        // OnBtnChange(); // 그냥도 호출이 됨
+
+        const OnBtnChange1 = function()
+        {
+            console.log("OnBtnChange1")
+        }
+
+        const OnBtnChange2 = function()
+        {
+            console.log("OnBtnChange2")
+        }
+
+        // const h1Element = document.querySelector("h1");
+        const btnChange = document.querySelector("button");
+        // @@ (기능)등록함수
+
+        btnChange.addEventListener("click",OnBtnChange1);
+        btnChange.addEventListener("click",OnBtnChange2);
+        // btnChange 라는 버튼 객체에 .addEventListener 함수로 Event 등록
+        // ("click" 변화가 생겼을 때 , OnBtnChange라는 이벤트함수를 호출하라)
+        // btnChange(버튼)와 관련된 method 호출,
+        // "click"을 했을 때 OnBtnChange를 호출하는 이벤트를 등록하라.
+        // 원래 "click"행위를 했을 때, 누르면 밝아지고 안 누르면 진해지는 게
+        // default 이벤트임. 근데 내가 OnBtnChange라는 이벤트를 따로 호출하는 것
+        // modal상태 : 이벤트가 실행 됐을 때 부모 이벤트를 건드릴 수 없는 상태가 되는 것
+
+        // event = (의미 있는) 신호
+        // Document Object는 상태가 지속적으로 바뀌는데
+        // 바뀐 상태에 따라 기능이 수행 됨
+        // ex) 상태:마우스가 올라감 / 액션:이미지 컬러가 진해짐
+
+        })();
+
+    </script>
+</body>
+</html>
