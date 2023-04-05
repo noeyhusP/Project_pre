@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color : red;
+
+        }
+
+        .blue {
+            color: blue;
+
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class = "red">Apple</li>
+        <li class = "red">Banana</li>
+        <li class = "red">Orange</li>
+    </ul>
+
+    <script>
+        const $fruit = document.getElementsByClassName("red");
+        // HTMLCollection 으로 가지고 옴
+        // blue로 바꾸려 하면 제대로 안 됨
+        // HTMLCollection은 live성격을 띄어서 DOM상태를 바꾸면
+        // 동기화 되어 바로 따라서 바뀜 (업데이트 됨)
+        // getElementsByClassName 특성상 class가 red인 것을 기준으로
+        // 판단 & 적용하기 때문에 blue가 된 것을 바로바로 제외하면서
+        // for문을 돌게 되기 때문에 적용하는 동안 miss가 남 
+
+        // const $fruit = document.querySelectorAll(".red");
+        // NodeList 로 가지고 옴
+        // Node는 live적 성격이 아니기 때문에 문제 없이 바뀜
+
+        console.log($fruit);
+
+
+        // for (let i = 0; i < $fruit.length; i++)
+        // {
+        //     $fruit[i].className = "blue";
+
+        // }
+        // (0>1>2)로 돌면서 인식오류가 생김
+
+        // for (let i = $fruit.length - 1; i >= 0; i--)
+        // {
+        //     $fruit[i].className = "blue";
+
+        // }
+        // 해결법 1. for문을 역으로 돌리면 해결이 됨(2>1>0순서로 돎)
+        // 근원적이고 좋은 해결법은 아니지만 알고리즘적으로 공부가 되는 방법
+
+        [...$fruit].forEach((value)=>{
+            value.className = "blue";
+
+        })
+        // 해결법 2. spread연산자 & forEach
+        // 근원적 해결법 : 배열로 갖고 와서 돌면 상관이 없어짐
+        // spread 특성 : 배열을 전부 펼쳐서 
+        // forEach 각각의 원소를 전부 한 번씩 돌기 때문에
+        // 모든 원소를 다 blue 로 바꿔주는 것
+
+
+        // 해결법 3. spread로 배열 만들고 & 정방향 for문 돌리기
+        // let $fruitArray = [...$fruit];
+        // for (let i = 0; i < $fruitArray.length; i++)
+        // {
+        //     $fruitArray[i].className = "blue";
+
+        // }
+        // for문 전에 이렇게 spread 배열을 지정해주고 돌아도
+        // 문제 해결 됨
+
+
+    </script>
+</body>
+</html>

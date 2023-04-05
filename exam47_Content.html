@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "main_title">
+
+    </div>
+
+    <div class = "sub_title">
+
+    </div>
+
+    <script>
+        // innerHTML 과 textContent의 차이
+
+        (function(){
+            // 1.main_title 오브젝트를 가지고 온다.
+            const $mainTitle = document.querySelector(".main_title");
+
+            // 2.main_title 오브젝트 안에 <h1>Hello</h1>을 집어 넣는다.
+            $mainTitle.innerHTML += "<h1>Hello</h1>"
+            $mainTitle.innerHTML += "<h1>Wellcome</h1>"
+            // $title.innerHTML = $title.innerHTML + "<h1>Hello</h1>" 
+            // innerHTML은 안에 넣은 정보를 정보로서 해석하고 넣어줌
+            // 즉, tag: div의 content 내용으로 넣는 것이 아니라
+            // div .main_title 노드의 하위 node로 
+            // 따로 tag : h1 ... 와 같이 생성해서 넣어줌
+
+            const $subTitle = document.querySelector(".sub_title");            
+            $subTitle.textContent += "<h2>Korea</h2>"
+            // textContent는 안에 넣은 정보를 텍스트로 인식해서 넣어줌
+            // 즉, <h2>Korea</h2> 을 div .sub_title 노드의 
+            // 텍스트 속성값으로 넣어줌
+
+            $subTitle.innerHTML += "<h2>Korea</h2>"
+            // innerHTML로 넣어주면 <h2>로 해석되어 Korea만 나옴
+
+        })();
+
+    </script>
+</body>
+</html>

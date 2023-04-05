@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi</h1>
+    <ul>
+
+    </ul>
+    <button>insert li</button>
+    <script>
+        // 1. 기존 오브젝트를 가지고 온다.
+
+        const $ul = document.querySelector("ul");
+        const $btn = document.querySelector("button");
+
+        // 2. 추가할 오브젝트를 만들고 설정한다.
+
+        const fruit = ["딸기", "오렌지", "사과", "멜론", "바나나"];
+
+        const callbackInsert = function()
+            {
+                fruit.forEach((value)=>{
+                let $fruit
+                // 생성
+                $fruit = document.createElement("li");
+                // 설정
+                $fruit.textContent = value;
+                // 추가
+                $ul.appendChild($fruit);
+            });
+            $btn.removeEventListener("click",callbackInsert);
+            }
+        $btn.addEventListener("click",callbackInsert);
+
+        // !! removeChild 사례 !!
+        $btn.addEventListener("click",function(){
+            const $h1 = document.querySelector("h1");
+
+            $h1.parentNode.removeChild($h1);
+            // 지우기 위해서는 parent node에게 삭제해달라고 요청해야함
+
+        });
+
+    </script>
+</body>
+</html>

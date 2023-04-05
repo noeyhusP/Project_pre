@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cat {
+            border : 5px red solid;
+
+        }
+        .kitten {
+            border : 5px blue solid;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- img = tag , class, src, alt = attribute -->
+    <!-- <img class="cat" src="http://placekitten.com/650/600" alt="cat1"> -->
+    <img class="kitten" src="http://placekitten.com/650/600" alt="cat1">
+
+    <!-- <button>Change border</button> -->
+    <button class = "changeB">Change border</button>
+
+    <script>
+        (function(){
+            const $img = document.querySelector(".kitten");
+            const changBtn = document.querySelector(".changeB");
+            // console.log($img);
+
+            // let srcAttr = $img.getAttribute("src")
+            // console.log(srcAttr);
+
+            // srcAttr = $img.getAttribute("class")
+            // console.log(srcAttr);
+
+            // srcAttr = $img.getAttribute("alt")
+            // console.log(srcAttr);
+
+            // $img.setAttribute("alt", "kitten")
+            // attribute 바꾸기
+
+            // class를 toggle 시켜서 버튼 누를 때 마다 cat, kitten 바뀌기
+
+            // setAttribute 이용ver
+
+        //     let changeClass = true;
+        //     changBtn.addEventListener("click",()=> 
+        //     {
+        //         if (changeClass === true)
+        //         {
+        //             $img.setAttribute("class", "cat");
+        //             changeClass = false;
+
+        //         }
+        //         else
+        //         {
+        //             $img.setAttribute("class", "kitten");
+        //             changeClass = true;
+        //     }});
+        // })();
+
+            // getAttribute 이용 ver
+            changBtn.addEventListener("click",()=>  {
+
+            $img.removeAttribute("class")
+            // class 자체를 없애버리기
+            $img.removeAttribute("class","")
+            // class의 값을 없애버리기
+
+
+            // 1. class의 속성값을 가지고 온다.
+            let clsName = $img.getAttribute("class")
+            // 2. class의 속성값이 cat이면?
+            if (clsName === "kitten")
+            {
+                $img.setAttribute("class", "cat");
+            }
+            else 
+            {
+                $img.setAttribute("class", "kitten");
+            }})
+        })();
+
+
+
+    </script>
+</body>
+</html>

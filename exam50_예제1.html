@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+
+    </ul>
+    <button class = "입력">insert li</button>
+
+
+    <script>
+        // 버튼을 누르면 <ul>태그 안에 <li>로 좋아하는 과일 3종 들어가기
+
+        // 버튼 만들기
+        (function(){
+            const button = document.querySelector(".입력");
+
+
+            button.addEventListener("click",()=>{
+            
+            const makeBtn = function(){
+            
+            const $li = document.createElement("li");
+            const $li2 = document.createElement("li");
+            const $li3 = document.createElement("li");
+
+
+            $li.textContent = "딸기"
+            $li2.textContent = "청포도";
+            $li3.textContent = "오렌지";
+
+            // ul불러오기
+            const $ul = document.querySelector("ul");
+            $ul.appendChild($li);
+            $ul.appendChild($li2);
+            $ul.appendChild($li3);
+
+
+            }})
+            button.removeEventListener("click",makeBtn)
+        })();
+
+
+        
+
+    </script>
+</body>
+</html>

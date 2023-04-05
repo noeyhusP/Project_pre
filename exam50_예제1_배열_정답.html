@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+    <button>insert li</button>
+    <script>
+        // 1. 기존 오브젝트를 가지고 온다.
+
+        const $ul = document.querySelector("ul");
+        const $btn = document.querySelector("button");
+
+        // 2. 추가할 오브젝트를 만들고 설정한다.
+
+        const fruit = ["딸기", "오렌지", "사과", "멜론", "바나나"];
+
+        // 1. for문 활용
+        // const callbackInsert = function()
+        // {
+        //     console.log("insert!")
+        //     for (let i = 0; i < fruit.length; i++)
+        //     {
+        //         // li 불러와서 $fruit에 선언해주기
+        //         const $fruit = document.createElement("li");
+        //         // fruit 배열의 인덱스를 i로 설정하고 for문 도는만큼 불러오기
+        //         $fruit.textContent = fruit[i];
+        //         // ul태그에 $fruit 속성 추가
+        //         $ul.appendChild($fruit);
+        //     }
+        //     // 버튼 이벤트기능 제거
+        //     $btn.removeEventListener("click",callbackInsert);
+        // }
+        // $btn.addEventListener("click",callbackInsert);
+
+        // 버튼을 누르면 알아서 함수 실행하고 fruit 배열에서 값 불러와서 추가하며 실행 됨
+
+        // 2. forEach로 호출
+        const callbackInsert = function()
+            {
+                fruit.forEach((value)=>{
+                let $fruit
+                // 생성
+                $fruit = document.createElement("li");
+                // 설정
+                $fruit.textContent = value;
+                // 추가
+                $ul.appendChild($fruit);
+            });
+            $btn.removeEventListener("click",callbackInsert);
+            }
+        $btn.addEventListener("click",callbackInsert);
+
+    </script>
+</body>
+</html>

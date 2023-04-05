@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const opinion = {
+            article_id : 1999101010,
+            user_id : "vstudio",
+            opinion : "good"
+
+        };
+
+        // JSON이라는 객체가 존재함
+        const JsonData = JSON.stringify(opinion);
+
+        console.log(JsonData);
+        // 메모리에 있는 객체를 JSON형식으로 바꾸면 
+        // key : value 형식으로 보기 좋게 바꿔서 보여줌
+
+        const JsonData2 = JSON.stringify(opinion, null, 3);
+        // (불러올 객체, replacer(잘 안 씀), 공백)
+        console.log(JsonData2);
+
+        const jsonObject = JSON.parse(JsonData2);
+        // 문자열 데이터를 다시 object형태로 만들기
+        // parse > 구문분석
+
+        console.log(jsonObject);
+        // Object로 나옴
+        
+    </script>
+</body>
+</html>

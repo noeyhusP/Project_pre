@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 1. h1엘리먼트를 만든다.
+        const $h1 = document.createElement("h1");
+
+        $h1.textContent = "Hello";
+        // textContent를 이용해 content 집어넣기 (속성 변경)
+
+        // 2. 만든 엘리먼트를 body 밑에 붙인다. = body불러오기
+        const $body = document.querySelector("body");
+
+        // $body.appendChild($h1);
+
+        document.body.appendChild($h1);
+        // body는 필연적으로 document의 자식노드이기 때문에
+        // 쓰기 편하게 만들어진 형태
+
+    </script>
+</body>
+</html>
