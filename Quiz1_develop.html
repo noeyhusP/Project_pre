@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>제품코드</th>
+            <th>원가</th>
+            <th>할인원가</th>
+        </tr>
+        <tr>
+            <td class = "A001"></td>
+            <td class = "A001"></td>
+            <td class = "A001"></td>
+        </tr>
+        <tr>
+            <td class = "A002"></td>
+            <td class = "A002"></td>
+            <td class = "A002"></td>
+        </tr>
+        <tr>
+            <td class = "B001"></td>
+            <td class = "B001"></td>
+            <td class = "B001"></td>
+        </tr>
+    <script>
+        // 할인율 입력 받기
+        let rate = prompt("할인율을 입력하세요","");
+        rate = Number(rate)
+
+            // 원가와 할인율을 넣으면 할인가가 나오는 함수 
+            const discountRate = rate / 100;
+            const getDiscount = function(price,rate)
+            {
+                // let pr = this.price;
+                let dp = price * (1 - rate);
+                // console.log(Math.floor(dp/10) * 10); // 1의 자리를 버리고 반올림
+                // Math.floor > 소수점자리를 버리는 라이브러리함수
+                return Math.floor(dp/10) * 10;
+
+            } 
+
+            // getDiscount(33740,discountRate);
+            // console.log(getDiscount(24500,discountRate));
+            // console.log(getDiscount(33740,discountRate));
+            // console.log(getDiscount(8030,discountRate));
+
+            const product =
+            [
+            {
+                code : "A001",
+                price : 24500,
+                discount : getDiscount(24500,discountRate) 
+                // getDiscount 함수에서 리턴값을 받아옴
+            },
+            { 
+                code : "A002",
+                price : 33740,
+                discount : getDiscount(33740,discountRate)
+            },
+            {
+                code : "B001",
+                price : 8030,
+                discount : getDiscount(8030,discountRate)
+            }
+            ];
+
+            // 제품 코드 넣는 함수
+
+            // const insertData = function()
+            // {
+            //     const $td1 = document.querySelectorAll(".A001");
+            //     const $td2 = document.querySelectorAll(".A002");
+            //     const $td3 = document.querySelectorAll(".B001");
+
+            //     $td1[0].textContent = product[0].code;
+            //     $td1[1].textContent = product[0].price;
+            //     $td1[2].textContent = product[0].discount;
+
+            //     $td2[0].textContent = product[1].code;
+            //     $td2[1].textContent = product[1].price;
+            //     $td2[2].textContent = product[1].discount;
+
+            //     $td3[0].textContent = product[2].code;
+            //     $td3[1].textContent = product[2].price;
+            //     $td3[2].textContent = product[2].discount;
+            // };
+
+            // insertData(product);
+
+            const insertData2 = function()
+            {
+                const Objects = [
+                    document.querySelectorAll(".A001"),
+                    document.querySelectorAll(".A002"),
+                    document.querySelectorAll(".B001")
+                ];
+                product.forEach((value,index)=>{
+                    Objects[index][0].textContent = value.code;
+                    Objects[index][1].textContent = value.price;
+                    Objects[index][2].textContent = value.discount;
+
+                });
+            }
+
+            insertData2(product);
+    </script>
+    
+</body>
+</html>

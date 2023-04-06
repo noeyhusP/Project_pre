@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+    <tr>
+        <th>제품코드</th>
+        <th>원가</th>
+        <th>할인원가</th>
+    </tr>
+    <tr>
+        <td class = "A001"></td>
+        <td class = "A001"></td>
+        <td class = "A001"></td>
+    </tr>
+    <tr>
+        <td class = "A002"></td>
+        <td class = "A002"></td>
+        <td class = "A002"></td>
+    </tr>
+    <tr>
+        <td class = "B001"></td>
+        <td class = "B001"></td>
+        <td class = "B001"></td>
+    </tr>
+    <tr>
+        <td class = "B002"></td>
+        <td class = "B002"></td>
+        <td class = "B002"></td>
+    </tr>
+</table>
+    <script>
+        // 1. 원가와 할인율을 넣으면 할인가가 나오는 함수 
+        const discountRate = 0.1
+            const getDiscount = function(price,rate)
+            {
+                // let pr = this.price;
+                let dp = price * (1 - rate);
+                // console.log(Math.floor(dp/10) * 10); // 1의 자리를 버리고 반올림
+                // Math.floor > 소수점자리를 버리는 라이브러리함수
+                return Math.floor(dp/10) * 10;
+
+            } 
+
+        // 2. 제품정보 객체 생성
+        const product =
+        [
+            {
+                code : "A001",
+                price : 24500,
+                discount : getDiscount(24500,discountRate) 
+                // getDiscount 함수에서 리턴값을 받아옴
+            },
+            { 
+                code : "A002",
+                price : 33740,
+                discount : getDiscount(33740,discountRate)
+            },
+            {
+                code : "B001",
+                price : 8030,
+                discount : getDiscount(8030,discountRate)
+            },
+            {
+                code : "B002",
+                price : 13700,
+                discount : getDiscount(13700,discountRate)
+            }
+        ];
+
+        // console.log(product);
+
+        // 3. 제품 정보 table에 넣는 함수
+
+        // 방법 1) 각각 DOM 가지고 오기
+        // const $A001s = document.querySelectorAll(".A001");
+        // const $A002s = document.querySelectorAll(".A002");
+        // const $B001s = document.querySelectorAll(".B001");
+
+        // $A001s[0].textContent = product[0].code;
+        // $A001s[1].textContent = product[0].price;
+        // $A001s[2].textContent = product[0].discount;
+
+        // $A002s[0].textContent = product[1].code;
+        // $A002s[1].textContent = product[1].price;
+        // $A002s[2].textContent = product[1].discount;
+
+        // $B001s[0].textContent = product[2].code;
+        // $B001s[1].textContent = product[2].price;
+        // $B001s[2].textContent = product[2].discount;
+
+        // 방법 2) 반복되는 거 묶기 
+        const Objects = [
+            document.querySelectorAll(".A001"),
+            document.querySelectorAll(".A002"),
+            document.querySelectorAll(".B001"),
+            document.querySelectorAll(".B002")
+
+        ];
+        
+        // (2-1). for문 활용
+        // for (let i = 0; i < product.length; i++)
+        // {
+        //     Objects[i][0].textContent = product[i].code;
+        //     Objects[i][1].textContent = product[i].price;
+        //     Objects[i][2].textContent = product[i].discount;
+
+        // }
+
+        // (2-2). forEach 활용
+        product.forEach((value,index)=>{
+            Objects[index][0].textContent = value.code;
+            Objects[index][1].textContent = value.price;
+            Objects[index][2].textContent = value.discount;
+
+        });
+
+    </script>
+</body>
+</html>

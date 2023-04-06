@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1 class = "line1"></h1>
+    <h1 class = "line2"></h1>
+    <h1 class = "line3"></h1>
+    <h1 class = "line4"></h1>
+    <h1 class = "line5"></h1> -->
+    <script>
+
+        // const number = [10, 44, 3, 6, 8, 45];
+
+        // 오름차순으로 sorting 하기
+        // number.sort(function(a,b)
+        // {
+        //     if (a > b) return 1;
+        //     if (a === b) return 0;
+        //     if (a < b) return -1;
+
+        // });
+
+        // 더 간단히 하면(오름차순)
+        // number.sort((a,b)=>(a - b));
+
+        // -----------------------------------------------------------
+        // 랜덤함수
+        
+        // Math.random
+        // 소수점까지 싹 리턴함
+    
+        // 정렬기준(숫자로 변환) 넣어주기
+
+        // 1~45 사이의 숫자 6개가 랜덤으로 나오는 함수 만들기
+
+        // for (i = 0; i < 6; i++)
+        // {   
+        //     console.log(Math.floor(Math.random() * 45) + 1);
+        //     // Math.floor가 소수점 이하를 반올림 하므로 (1~45) 범위니까
+        //     // 45를 곱하고 + 1 하면 1~45 사이의 숫자가 범위가 됨
+
+        // }
+
+        // 1~45 사이의 숫자 6개가 랜덤으로 나오는 로또함수 만들기
+        
+        let lotto = [];
+        const lottofunc = function(func)
+        {
+            
+            for (i = 0; i < 6; i++)
+            { 
+                lotto.push(Math.floor(Math.random() * 45) + 1);
+            }
+            
+            return lotto;
+        }();
+
+        // 빈 배열을 만들고 for문 돌고 나온 return 값을 빈 배열에 넣어주기
+
+
+
+        // 배열에 리턴 된 6개의 숫자 오름차순으로 만들기 
+        lotto.sort((a,b)=>(a - b));
+
+        // console.log(lotto);
+
+        // <h1> 태그 안에 넣어주기
+        // $line1 = document.createElement("h1");
+        // document.querySelector(".line2"),
+        // document.querySelector(".line3"),
+        // document.querySelector(".line4"),
+        // document.querySelector(".line5")
+
+        const $h1 = document.createElement("h1");
+        $h1.textContent = "lotto";
+        // const $body = document.querySelector("body");
+        // document.body.appendChild($h1);
+
+        // $line1.textConetent = lotto;
+
+
+        // const callbackInsert = function()
+        //     {
+        //         fruit.forEach((value)=>{
+        //         let $fruit
+        //         // 생성
+        //         $fruit = document.createElement("li");
+        //         // 설정
+        //         $fruit.textContent = value;
+        //         // 추가
+        //         $ul.appendChild($fruit);
+        //     });
+        //     $btn.removeEventListener("click",callbackInsert);
+        //     }
+        // $btn.addEventListener("click",callbackInsert);
+
+        
+        const getLNumber = function()
+        {
+            return Math.floor(Math.random() * 45) + 1;
+
+        }
+        // 로또 배열 5개 만들기
+        const result = [[],[],[],[],[]];
+        const makeLottoArray = function(target)
+        {
+            let pos = 0;
+            let ranNum;
+            let bExist = false;
+            while (pos < 6) // pos가 6이 될 때 까지 로또원소 6개 추가하기
+            {
+            // 랜덤번호를 하나 만들고
+            ranNum = getLNumber();
+            // 랜덤번호가 target에 있는지 확인
+            for (let i = 0; i < 6; i++)
+            {
+                if (target[i] === ranNum)
+                {
+                    bExist = true;
+                    break;
+                }
+            }
+                if (bExist === true)
+                {
+                    continue;
+                }
+                // 랜덤번호가 target에 없으면 추가
+                target[pos] = ranNum;
+                // 추가되면 pos 추가 
+                pos ++;
+            }
+        }
+            
+
+        makeLottoArray(result[0]);
+
+        // for (let i = 0; i < result.length; i++)
+        // {
+        //     makeLottoArray(result[i]);
+
+        // }
+
+    </script>
+</body>
+</html>

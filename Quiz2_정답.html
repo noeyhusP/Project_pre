@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const getLNumber = function()
+        {
+            return Math.floor(Math.random() * 45) + 1;
+
+        }
+
+        i = 0;
+
+        const result = [[],[],[],[],[]];
+        const makeLottoArray = function(target)
+        {
+            let pos = 0;
+            let ranNum;
+            let bExist = false;
+            while (pos < 6) 
+            {
+                bExist = false;
+                ranNum = getLNumber();
+                for (let i = 0; i < 6; i++)
+                {
+                    if (target[i] === ranNum)
+                    {
+                        bExist = true;
+                        break;
+                    }
+                }
+                    if (bExist === true)
+                    {
+                        continue;
+                    }
+                    target[pos] = ranNum;
+                    target.sort((a,b)=>(a-b)); 
+                    pos ++;
+            }
+        };
+        
+        // makeLottoArray(result[0]);
+        // makeLottoArray(result[1]);
+        // makeLottoArray(result[2]);
+        // makeLottoArray(result[3]);
+        // makeLottoArray(result[4]);
+        
+        // const printLotto = function()
+        // {
+            for (let i = 0; i < result.length; i++)
+            {
+                makeLottoArray(result[i]);
+                // result[i].sort((a,b)=>(a-b));   
+                const $h1 = document.createElement("h1");
+                document.body.appendChild($h1);
+                $h1.textContent = result[i];
+ 
+            }
+        // }();
+    </script>
+</body>
+</html>

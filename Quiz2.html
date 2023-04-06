@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button>Click</button> -->
+    <script>
+        // 1~45 사이의 숫자 6개가 랜덤으로 나오는 로또함수 만들고
+        // 빈 배열에 리턴해주기
+        
+        // const callbackInsert = function()
+        // {
+        // let lotto = [];
+        // const lottofunc = function(func)
+        // {
+            
+        //     for (i = 0; i < 6; i++)
+        //     { 
+        //         lotto.push(Math.floor(Math.random() * 45) + 1);
+        //     }           
+        //     return lotto;
+        // }();}
+        // $btn.addEventListener("click",callbackInsert);
+        
+        const result = [];
+
+        const lottofunc = function ()
+        {
+            for (i = 0; i < 5; i++)
+                {
+                    let lotto = [];
+                    const lottoMake = function()
+                    {
+                        
+                        for (i = 0; i < 6; i++)
+                        { 
+                            let lottoNum = Math.floor(Math.random() * 45) + 1;
+
+                            for (let j in lotto)
+                            while (lottoNum === lotto[j])
+                            {
+                                lottoNum = Math.floor(Math.random() * 45) + 1;
+                            }
+                            lotto.push(lottoNum);
+                        }
+                        lotto.sort((a,b)=>(a - b));           
+                        return lotto;
+                        result.push(lotto);
+                        }
+                    lotto = [];
+                    };             
+        }();
+
+
+        // 배열에 리턴 된 6개의 숫자 오름차순으로 만들기 
+        // lotto.sort((a,b)=>(a - b));
+
+        // console.log(lotto);
+
+        // <h1> 태그 안에 넣어주기
+        const $h1 = document.createElement("h1");
+        document.body.appendChild($h1);
+        $h1.textContent = result;
+
+        // for (let i = 0; i < result.length; i++)
+        // {
+        //     makeLottoArray(result[i]);
+            
+        // }
+
+        // for (let i = 0; i < result.length; i++)
+        // {
+        //     const $h1 = document.createElement("h1");
+        //     document.body.appendChild($h1);
+        //     $h1.textContent = result;
+            
+        // }
+
+
+        // 반복문 생성
+        
+        // for (let i = 0; i < 5; i++)
+        // {
+
+        // }
+
+        
+    </script>
+</body>
+</html>

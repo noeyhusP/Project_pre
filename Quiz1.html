@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table 만들기 -->
+    <table border="1">
+        <tr>
+            <th>제품코드</th>
+            <th>원가</th>
+            <th>할인원가</th>
+        </tr>
+        <tr>
+            <td>A001</td>
+            <td>24500</td>
+            <td>22050</td>
+        </tr>
+        <tr>
+            <td>A002</td>
+            <td>33740</td>
+            <td>30360</td>
+        </tr>
+        <tr>
+            <td>B001</td>
+            <td>8030</td>
+            <td>7720</td>
+        </tr>
+    </table>
+
+    <script>
+        // 데이터 제품의 원가 배열 만들기 or 객체 만들기
+        let orgPrice = [24500, 33740, 8030];
+
+        let orgPrice2 = {
+            A001 : 24500,
+            A002 : 33740,
+            B001 : 8030
+
+        } 
+
+        // 제품코드 넣는 함수
+
+        // const insertCode = function()
+        // {
+        //     for (const key in orgPrice2) // key는 string임
+        //     {
+        //         const newOrgPrice2 = {};
+        //         // console.log(key); // key만 나옴
+        //         // value = obj[key]; // value에 각 key의 value값 할당
+        //         newOrgPrice2[key] = orgPrice2[key]; // obj의 [key & value]를 새로운 obj그룹에 넣기
+        //         // 객체의 key : value 값을 배열의 인덱스와 요소처럼 가지고 옴
+        //         // 원래 value만 가져오는 건데 빈 객체에 key값이 없으니 같이 가져와버리는 원리
+        //         // console.log(value); // value만 나옴
+        //     // 생성
+        //     $newOrgPrice2 = document.createElement("td");
+        //     // // 설정
+        //     $newOrgPrice2.textContent = value;
+        //     // // 추가
+        //     $tr.appendChild($newOrgPrice2);
+        // }
+        // return newOrgPrice2;
+        // }
+
+        // console.log(insertCode(orgPrice2));
+
+        // 원가를 10% 낮추는 함수 만들기
+        const discount = orgPrice.map(function(value){
+            return value * 0.9 
+            // Math.floor(n/10) * 10;
+
+        });
+
+        console.log(discount);
+
+        // 원가 10% 낮추는 값 테이블 만들어서 집어넣는 함수 만들기
+
+        // const $tr = document.querySelector("tr");
+        // const insertPrice = function()
+        //     {
+        //         // orgPrice2.forEach((value)=>{
+        //         // // 생성
+        //         // $orgPrice2 = document.createElement("td");
+        //         // // 설정
+        //         // $orgPrice2.textContent = value;
+        //         // // 추가
+        //         // $tr.appendChild($orgPrice2);
+
+        //         [...discount].forEach((value)=>{
+        //         let $newPrice
+        //         // 생성
+        //         $newPrice = document.createElement("td");
+        //         // 설정
+        //         $newPrice.textContent = value;
+        //         // 추가
+        //         $tr.appendChild($newPrice);
+        //     })};
+        //     // );}
+        //     insertPrice(orgPrice);
+
+
+    </script>
+</body>
+</html>
