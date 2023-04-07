@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" id = "email">
+    <h1>이메일 형식이 아닙니다.</h1>
+
+    <script>
+        const $email = document.getElementById("email");
+        $email.addEventListener('keyup',(event)=>{
+            // console.log($email.value,$email.value.length);
+            console.log(event.currentTarget.value);
+            // event.currentTarget => 이벤트가 발생된 DOM객체 = $email
+            // 즉, 이벤트 이름을 직접적으로 넣지 않아도 됨 (이 방법을 추천)
+
+        });
+        // keyup = text창에 키보드의 key를 눌렀다 뗄 때
+
+        // keyEvent 1. 진짜 등록된 keyEvent
+        // 2. 가상으로 조합 된 keyEvent
+        // 여기서 구현하는 ketEvent는 다 가상 키값임
+        // 가능한 keyEvent는 keyup, keydown, keypress 3가지
+
+        // keyEvent를 넣으면 반드시 event객체가 딸려옴
+
+        // email의 조건 5가지 확인하는 함수 생성 
+
+    </script>
+</body>
+</html>

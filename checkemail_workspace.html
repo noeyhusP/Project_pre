@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" id = "email">
+    <script>
+        // email형식 확인하는 함수 생성
+
+        const emailTrue = function ()
+        {
+            const $email = document.getElementById("email");
+            $email.addEventListener('keyup',(event)=>
+            {
+                const $h1 = document.createElement("h1");
+                let text = event.currentTarget.value;
+                let trueMsg = "이메일 형식입니다."
+                let falseMsg = "이메일 형식이 아닙니다." 
+
+                // 주어진 값이 email인지 체크 시작
+                if (text.includes("@",) === false) // @포함여부 확인
+                // if (test.indexOf("@") === -1)
+                {
+                    document.body.appendChild($h1);
+                    $h1.textContent = falseMsg;
+
+                }
+                else if (typeof(text.includes("",text.indexOf('@')) === string)) // @ 앞에 문자 존재 확인
+                {
+                    document.body.appendChild($h1);
+                    $h1.textContent = falseMsg;
+                }
+                // else if () // @ 뒤에 문자 존재 확인
+                // {
+                //     document.body.appendChild($h1);
+                //     $h1.textContent = falseMsg;
+                // }
+                // else if () // @ 뒤에 문자 중에 . 존재 확인
+                // {
+                //     document.body.appendChild($h1);
+                //     $h1.textContent = falseMsg;
+                // }
+                // else if () // .뒤에 문자 존재 확인
+                // {
+                //     document.body.appendChild($h1);
+                //     $h1.textContent = falseMsg;
+                // }
+                else
+                {
+                    document.body.appendChild($h1);
+                    $h1.textContent = trueMsg;
+                }
+            });
+        }();
+
+            // 1. @ 존재여부
+            (text.includes("@",));
+            // 2. @ 앞에 문자 1개 이상 존재여부
+            (typeof(text.includes("",text.indexOf('@')) === string))
+            
+            // 3. @ 뒤에 문자 1개 이상 존재여부
+
+
+            // 4. @ 뒤에 . 존재 확인 여부
+
+            // 5. . 뒤에 문자 1개 이상 존재여부
+
+    </script>
+</body>
+</html>

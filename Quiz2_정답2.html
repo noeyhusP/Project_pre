@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class = "lNumber"></h1>
+    <h1 class = "lNumber"></h1>
+    <h1 class = "lNumber"></h1>
+    <h1 class = "lNumber"></h1>
+    <h1 class = "lNumber"></h1>
+    <!-- class를 묶으면 CSS 디자인 할 때도 편함 -->
+    <script>
+        // 1 - 45 사이의 랜덤번호 받는 함수
+        const getLNumber = function()
+        {
+            return Math.floor(Math.random() * 45) + 1;
+
+        }
+
+        // 로또번호 6개 생성 (중복번호 없도록)
+        const makeLottoArray = function(target, bSort = true)
+        // default 파라미터를 활용해서 기본은 오름차순으로, false 일땐 sorting없이 나오기
+        {
+            let pos = 0;
+            let ranNum;
+            let bExist = false;
+            while (pos < 6) 
+            {
+                bExist = false;
+                ranNum = getLNumber();
+                for (let i = 0; i < 6; i++)
+                {
+                    if (target[i] === ranNum)
+                    {
+                        bExist = true;
+                        break;
+                    }
+                }
+                    if (bExist === true)
+                    {
+                        continue;
+                    }
+                    target[pos] = ranNum;
+                    pos ++;
+            }
+            if (bSort === true) 
+            // bSort가 true (default값)일 때만 오름차순 sort되기
+            target.sort((a,b)=>(a-b)); 
+        };
+
+        // 실행시작
+        const $h1s = document.querySelectorAll(".lNumber");
+
+        // 로또번호 5개set가 들어갈 배열
+        const result = [[],[],[],[],[]];
+
+        // result에 채움
+        result.forEach((value)=>{
+            makeLottoArray(value);
+        })
+
+        // sort 거부할 시, false값 넣어줌
+        // result.forEach((value)=>{
+        //     makeLottoArray(value, false);
+        // })
+        
+
+        // result를 h1태그에 넣어줌
+        result.forEach((value,index)=>
+        {
+            // value를 문자열로 바꿈 (textContent 로 넣어줘야하기 때문)
+            let content = value.join(", ");
+            // let cc = '${index + 1}번째 로또 : ${content}';
+            // h1에 textContent로 넣어줌
+            $h1s[index].textContent = content;
+            // textContent를 이용할 때는 문자열로 넣어주는게 좋음
+
+        });
+    </script>
+</body>
+</html>

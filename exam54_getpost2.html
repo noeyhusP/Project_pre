@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" name = "user_id" id = "id"> <br>
+    <input type = "email" name = "email" id = "email"> <br>
+    <input type = "password" name = "user_pw" id = "pw">
+
+    <select id = "main_menu">
+        <option>메뉴를 선택하세요</option>
+        <option>짜장면</option>
+        <option>짬뽕</option>
+        <option>볶음밥</option>
+        <option>탕수육</option>
+    </select>
+
+    <div>
+        <h1 id = "selected_menu">선택된 메뉴</h1>
+    </div>
+    <script>
+        // h1, select 가지고 오기
+        const $main_menu = document.querySelector("#main_menu");
+        const $h1 = document.querySelector("#selected_menu");
+        // id를 가져올 땐  #id
+
+        // 함수 등록시 브라우저 시스템에서 "change"라는 event가 발생될 때
+        // callback함수를 호출하면서 event가 발생된 시점에서 필요한
+        // 여러가지 정보들이 들어있는 객체의 시작정보를 호출함
+        // 즉, event 값으로 event 뒤의 정보들이 들어간 시작정보가 호출됨
+        $main_menu.addEventListener("change", (event) => 
+        {
+            const opts = event.currentTarget.options;
+            // 선택한 옵션이 나옴
+            console.log(opts);
+            const idx = event.currentTarget.options.selectedIndex;
+            console.log(idx);
+            // = console.log(opts.selectedIndex);
+            console.log(opts[idx].textContent);
+            // 선택한 인덱스의 텍스트값 가지고 옴
+
+            $h1.textContent = `선택된 메뉴는 ${opts[idx].textContent}입니다.`;
+
+        });
+
+    </script>
+    
+</body>
+</html>

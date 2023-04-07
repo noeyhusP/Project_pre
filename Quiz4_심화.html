@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>사용자 정보 입력</legend>
+        <form action = "/regmember/" method = "GET">
+        <label for="user_id">user_id : </label>
+        <input type = "text" name = "user_id" id = "user_id" placeholder="user_id"> <br>
+        <label for="user_email">email : </label>
+        <input type = "email" name = "email" id = "email" placeholder="user@mail.com"> <br>
+        <label for="user_pw">password : </label>
+        <input type = "password" name = "user_pw" id = "pw"> <br><br>
+    
+    
+        <label for="user_select">회원 구분 : </label>
+        <select id = "user_select" name = "member">
+            <option>선택하세요</option>
+            <option value = "adult">일반 회원</option>
+            <option value = "minor">만 19세 회원</option>
+            <option value = "admin">관리자</option>
+        </select>
+        <br>
+        <br>
+    
+        <label for="user_sex">성별 : </label>
+        <input type="radio" id="id_male" name="sex" value="male">
+        <label for="male">남자</label>
+        <input type="radio" id="id_female" name="sex" value="female" checked>
+        <label for="female">여자</label>
+        <br>
+        <br>
+        <button type = "submit" id = "submit">가입</button>
+        <!-- = <input type = "submit"> -->
+        </form>
+        </fieldset>
+    
+        <!-- 제출하면
+        file:///C:/regmember/?user_id=user_id&email=user%40mail.com&user_pw=1111&member=adult&sex=female -->
+        <!-- url에 이렇게 적힘 -->
+        <!-- %40 은 @의 대체 url코드 -->
+        <!-- name 값이 분류값으로 뜸 -->
+        <!-- name은 백엔드에서 다루고 id는 프론트엔드에서 주로 다루는 내용 -->
+    
+        <div>
+            <h1 id = "user_info">사용자 정보</h1>
+        </div>
+
+    <script>
+        const $id = document.querySelector("#id");
+        const $email = document.querySelector("#email");
+        const $pw = document.querySelector("#pw");
+        const $member = document.querySelector("#user_select");
+        const $submit = document.querySelector("#submit");
+        
+        // select창에서 선택하시오가 선택되어 있을 때 제출버튼 눌러도 경고창 띄우기
+        
+        $submit.addEventListener("change", (event) => 
+        {
+            const opts = event.currentTarget.options;
+            // 선택한 옵션이 나옴
+            console.log(opts);
+            const idx = event.currentTarget.options.selectedIndex;
+            console.log(idx);
+            // = console.log(opts.selectedIndex);
+            console.log(opts[idx].textContent);
+            // 선택한 인덱스의 텍스트값 가지고 옴
+
+            $h1.textContent = `선택된 메뉴는 ${opts[idx].textContent}입니다.`;
+
+        });
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

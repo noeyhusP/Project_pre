@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "text" id = "email">
+    <script>
+        // param : 체크할 이메일 텍스트
+        // return true : 이메일 형식이 맞는 경우
+        // return false : 이메일 형식이 아닌 경우
+        const checkEmail = function(email)
+        {
+            const token = email.split("@");
+            const token2 = token[1].split(".");
+            if ((token.length-1) !== 1 && 
+            token[0].length === 0 &&
+            token[1].length === 0 && 
+            token[1].includes(".",) === false &&
+            token2[1].length === 0)
+            // = if ((email.split("@").length - 1) === 1)
+            {
+                return false;
+            }
+
+            return true ;
+        }
+
+        // let res = checkEmail("nana@naver.com");
+        // console.log(res);
+
+        const $email = document.getElementById("email");
+        const $h1 = document.createElement("h1");
+
+        let trueMsg = "이메일 형식입니다."
+        let falseMsg = "이메일 형식이 아닙니다." 
+
+        $email.addEventListener('keyup',(event =>{
+            let text = event.currentTarget.value;
+
+            if (checkEmail(text) === true)
+            {
+                document.body.appendChild($h1);
+                $h1.textContent = trueMsg;
+            }
+            else
+            {
+                document.body.appendChild($h1);
+                $h1.textContent = falseMsg;
+            }
+
+
+        }));
+
+   </script> 
+</body>
+</html>
