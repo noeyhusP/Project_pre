@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box{
+
+        border: 10px solid red;
+    }
+        .inbox {
+            position: relative;
+            /* relative는 현재위치에서 원점을 두고 좌표를 계산함 */
+            /* 포지션을 뭘 지정해주냐에 따라 원점이 달라짐 */
+            /* 위치값 지정해주지 않으면 그냥 relative가지고는 아무 변화 X */
+            /* normal-flow, stactic이라고 치고 변화하기 때문 */
+            left : 5px;
+            /* right : 20px;
+            bottom : 10px; */
+            /* 일반적으로는 left & top을 씀 */
+            top: 10px; 
+            /* ??? 왜 기준이 이렇게 되는지? */ 
+            border : 5px solid black;
+
+        }
+        /* 별도의 기본값을 지정해주지 않는 이상 기본값 static
+        position: relative;
+        border : 3px solid tomato;
+        height : 60px;
+        width : 300px;
+
+        /* offset값 적용방법 4가지 */
+        /* top : 100px;
+        left : 80px; */
+        /* relative로 적용했을 때 top기준으로 100px, */
+        /* left기준으로 80px 옮겨져서 나옴 */
+        /* 두 개의 개체가 따로따로로 움직인다고 생각하면 (layer을 세분화)
+        normal flow가 깨지는 게 아닌 셈이 됨  */
+        /* drawing 패널을 하나 더 만들어서 겹치는 식이라고 이해하기 */
+    /* } */
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        box
+        <div class="inbox">
+            inbox
+            </div>
+        </div>
+    </div>
+    <p>hsadjfjahjahujhjahdsk</p>
+    
+</body>
+</html>
