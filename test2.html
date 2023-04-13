@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            /* container틀의 레이아웃을 flex로 두고 그 방향을 direction으로 정함 */
+            /* direction이 row면 컨텐츠가 가로로 정렬되고 column이면 세로로 정렬됨 */
+            /* direction의 default값은 row임 */
+            justify-content: space-between;        
+            align-items: center;
+            flex-grow: 1;
+
+            background-color: aqua;
+            height: 200px;
+        }
+        .box {
+            background-color: bisque;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">0-box</div>
+        <div class="box">1-box</div>
+        <div class="box">2-box</div>
+        <div class="box">3-box</div>
+    </div>
+    <div class="box">new box</div>
+</body>
+</html>

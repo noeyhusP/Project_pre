@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* html {
+        margin : 0;
+        padding : 0;
+        border : 0; 
+    } */
+        body {
+            height: 3000px;
+
+        }
+        .container {
+            border: 1px solid black;
+            height: 200px;
+        }
+        /* 부모가 sticky가 아니기때문에 부모가 스크롤링으로 사라지면 
+        sticky임에도 같이 사라짐 (sticky가 normal-flow를 지킴) */
+        .box {
+            position: sticky;
+            top : 10px;
+
+            display: inline-block;
+            background-color: bisque;
+            height:  70px;
+            width: 70px;
+            border: 1px solid blueviolet;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>ABC</h1>
+    <h1>DEF</h1>
+    <h1>GHI</h1>
+
+    <div class="container">
+    <span class="box">
+        box
+    </span>
+    </div>
+    
+</body>
+</html>

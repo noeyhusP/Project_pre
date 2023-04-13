@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height : 3000px;
+        }
+        .container {
+            border: 1px solid black;
+            height: 200px;
+        }
+        .box {
+            display: inline-block;
+            top : 30px;
+            width: 100px;
+            height: 100px;
+            background-color: beige;
+
+            border: 1px solid black;
+        }
+
+        #two {
+        position: sticky;
+        top: 15px;
+        left: 40px;
+        background: salmon;
+        }
+
+        #three {
+        position: sticky;
+        top: 0;
+        left: 40px;
+        background: darkolivegreen;
+        }
+
+        #four {
+        position: sticky;
+        top: 15px;
+        left: 40px;
+        background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box" id="one">One</div>
+    <div class="box" id="two">Two</div>
+    <div class="box" id="three">Three</div>
+    <div class="box" id="four">Four</div>
+</div>
+</body>
+</html>

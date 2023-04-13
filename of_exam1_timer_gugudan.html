@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 구구단 5단을 0.5초마다 출력하는 함수
+        let count = 0;
+
+        const gugudan = setInterval(()=>{
+            count ++;
+
+            console.log(5 + " * " + count + " = " + 5*count);
+            if (count === 9)
+            {
+                console.log("끝");
+                clearTimeout(gugudan);
+            }
+        },500);
+
+        // let count2 = 1;
+
+        // const gugudan2 = setInterval(()=>{
+            
+        //     let str = `5 X ${count2} = ${5*count2}`
+        //     count2 ++;
+        //     console.log(str);
+
+        //     if (count > 9)
+        //     {
+        //         console.log("끝")
+        //         clearTimeout(gugudan2);
+        //     }
+        // },500);
+
+    </script>
+</body>
+</html>

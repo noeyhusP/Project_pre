@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body, html {
+        margin : 0;
+        padding : 0;
+        border : 0; 
+    }
+    /* 기본적으로 여백이 살짝 띄어져 나오는 걸 없애줌 */
+
+    .box {
+        position : fixed;
+        background-color: bisque;
+        border: 10px solid rgb(65, 58, 58);
+        width : 200px;
+        height : 200px;
+        top : 0px;
+        left : 0;
+
+
+    }
+    body {
+        height : 3000px;
+    }
+    /* .inbox {
+        
+        position: relative;
+        border : 10px solid cadetblue;
+        /* width : 100px;
+        height : 100px; */
+        /* left : 10px;
+        top : 0px; */
+/* 
+    } */ 
+    /* .ininbox {
+        /* absolute는 부모중에 static이 아닌 요소를 찾아서 
+        그 부모의 원점을 기준으로 원점을 삼음
+        없으면 body까지도 감 */
+        /* position: absolute;
+        border :10px solid tomato;
+        left : 0;
+        top : 0;
+
+    } */ 
+</style>
+</head>
+<body>
+    <!-- 백그라운드색, 보더 10px, 가로(width) 100px, 세로(height) 100px -->
+    <div class="box">
+        i am a box;
+        <!-- <div class="inbox">
+            in-box
+            <div class="ininbox">
+                in-in-box
+            </div>
+        </div> -->
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus sunt molestias est debitis dolore reiciendis, 
+        aliquam ea, voluptatibus, explicabo error nobis quas dolores laboriosam amet minima atque quibusdam dignissimos odio!
+    </p>
+    
+</body>
+</html>

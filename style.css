@@ -1,4 +1,189 @@
+@charset 'utf-8';
+
 html {
     font-size: 14px;
     font-family: 'Noto Sans KR', sans-serif;
+    
 }
+
+body {
+    overflow-x: hidden; /* 수평스크롤 없애기 */
+    letter-spacing: -0.05rem; /*0.05rem만큼(5%만큼) 글자폭 줄이기 */
+    /* 1rem = 제일 상위 폰트의 1개  */
+
+}
+
+a {
+    text-decoration: none; /*언더바, 밑줄 없애기 */
+}
+
+/* 왜 적용 안 되는지 파악하기 */
+footer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 3em;
+    width: 100%;
+
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: darkgrey;
+
+}
+
+
+.global-nav {
+    /* 레이아웃 제외 나머지(위치,크기 등) 설정 */
+    position: absolute; 
+    /*상위가 body이기때문에 body의 원점을 기준으로 두기 위해 */
+
+    width: 100%; /* 부모(body)의 width의 100%  */
+    height: 44px;
+    left: 0;
+    top: 0; 
+
+}
+
+.global-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 첫 item과 마지막 item이 각각 마지막에 정렬되고
+    나머지는 고르게 정렬됨 */
+
+    max-width: 1000px; 
+    height: 100%; /*부모의 높이의 100%*/
+    margin: 0 auto;
+    /* 양쪽이 가질 수 있는 최대로 가져가는데 양쪽이 동일하게 됨 */
+
+}
+
+.local-nav {
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    left: 0;
+    top: 45px;
+
+
+    /* position이 absolute가 되면
+    width, height, left, top 등의 정보를 필수적으로 지정해줘야 하는 것 */
+
+}
+
+.local-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    max-width: 1000px; /*최대크기를 지정, 축소했을 때 같이 줄지 않음 */
+    height: 100%;
+    margin: 0 auto;
+
+    border-bottom: 1px solid gray;
+
+}
+
+.local-nav-product-link {
+    margin-right : auto;
+    /* 오른쪽으로 margin을 최대로 가져감 */
+
+    font-size: 1.5rem;
+    /* 폰트 사이즈 기존 폰트의 1.5배 */
+    font-weight: bold;
+    /* 폰트 굵게 */
+
+}
+
+.local-nav-link {
+    margin-left: 2em;
+    /* 각 글자의 왼쪽 margin을 2em만큼 */
+
+}
+ 
+
+.product-name {
+    font-size: 7rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section0-product-name {
+    margin-top: 15em;
+}
+
+.sticky-element {
+    display: none;
+    position: fixed;
+}
+
+.section0-message {
+    /* opacity: 0; */
+    /* 밑에 블럭 작업할 때 헷갈리니까 투명하게 해놓기 */
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+
+    width: 100%;
+    height: 6em;
+    left: 0;
+    top: 5em;
+
+}
+
+.section1-message > p {
+    font-size: 2.75rem;
+    width: 1000px;
+    /* 폭 줄여주고 */
+    line-height: 2em;
+    /* 줄 간격 설정해주기 */
+    margin: 0 auto;
+    /* 양쪽 margin 적당히 줘서 가운데 정렬 */
+}
+
+/* section1-message 밑에 있는 (후손) strong을 지정 */
+/* 자식일 땐 >, 후손일 땐 그냥 공백 */
+.section1-message strong {
+    font-size: 4.5rem;
+    
+}
+
+.scroll-section {
+    border: 1px solid red;
+
+}
+
+#show-section0 .sticky-element {
+    display: block;
+    /* sticky-element는 원래 안 보이지만 
+    #show-section0에 있는 sticky-element는 보이게 함 */
+
+}
+
+.local-nav-sticky > .local-nav {
+    position : fixed;
+    /* normal-flow 안 지키게 되니까 위치값 넣어줌 */
+    left : 0;
+    top : 0;
+    /* top값 지정 안 해주면 local-nav의 height에서 붙음 */
+
+    /* local-nav에서 width, height가 cascading되어 값이 내려오기 때문에
+    굳이 안 정해줌 */
+    border-bottom: 1px solid gray;
+
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
+	-moz-backdrop-filter: saturate(180%) blur(15px);
+	-o-backdrop-filter: saturate(180%) blur(15px);
+	backdrop-filter: saturate(180%) blur(15px);
+    /* apple사이트에서 따온 blur처리 코드 */
+
+}
+
+/* local-nav-sticky의 반경에 들어왔을 때 local-nav-links의 border-bottom 없애줌 */
+/* 겹치지 않게! */
+.local-nav-sticky .local-nav-links {
+    border-bottom: none;
+}
+

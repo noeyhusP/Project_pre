@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height : 2300px;
+            /* padding: 0;
+            margin: 0; */
+            /* 스크롤 계산할 때 padding, margin값도 포함 및 고려해야 함 */
+
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>온전히 빠져들게 하는 빛깔</h1>
+
+    <script>
+        const $h1 = document.querySelector("h1");
+        let yOffset = 0;
+        let scroll = document.body.scrollHeight - window.innerHeight;
+        
+        window.addEventListener("scroll",()=>{
+
+            // 어떤 range 값을 넣어줘도 돌 수 있도록 코드 공식 만들기
+
+            let ratio = 0;
+
+            yOffset = window.scrollY;
+
+            ratio = yOffset / scroll;
+            // console.log(ratio);
+
+            let startValue = 1;
+            let endValue = 0;
+            let range = startValue - endValue;
+
+
+            let opacityValue = (range * ratio) + startValue;
+            $h1.style.opacity = opacityValue;
+
+            // console.log(opacityValue);
+        });
+
+        // 비율 함수로 만들어줘도 될 듯
+
+
+
+    </script>    
+</body>
+</html>

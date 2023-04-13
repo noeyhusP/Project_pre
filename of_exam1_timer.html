@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height : 2300px;
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>온전히 빠져들게 하는 빛깔</h1>
+
+    <script>
+        const $h1 = document.querySelector("h1");
+
+        // 타이머를 활용해 역주행으로 올라오는 코드
+
+        // opacity 값의 범위는 0~1 (0~100%)
+        let opacityValue = 0;
+        let value = 0;
+
+        const timerId = setInterval(()=>{
+
+            $h1.style.transform = `translateY(${value}%)`
+            // translateY 범위 = 0 - 100
+            value --;
+            // value값을 감소하게 하면 값이 줄어들기 때문에 역주행
+
+            if (value < -100) // 100%란 자기크기의 100%
+            {
+                $h1.style.transform = `translateY(0%)`
+                clearTimeout(timerId);
+
+            }
+
+        },20)
+
+        // 타이머를 활용해 정주행으로 내려가는 코드
+
+        // const timerId = setInterval(()=>{
+
+        //     opacityValue += 0.01;
+        //     // console.log(opacityValue);
+        //     // 20ms마다 0.01씩 증가
+        //     $h1.style.opacity = opacityValue;
+
+        //     if (opacityValue >= 1.0)
+        //     {
+        //         // console.log("kill"+ opacityValue);
+        //         $h1.style.opacity = 1;
+        //         clearTimeout(timerId);
+        //     }
+        // },20)
+        // 보통 timer로 애니메이션 효과 넣을 땐 2-30ms 로 설정함
+
+
+        // 타이머 코드
+        
+        // let count = 0;
+
+        // const timerId = setInterval(()=>{
+        //     count ++;
+
+        //     console.log("count = " + count);
+        //     if (count === 100)
+        //     {
+        //         console.log("kill-timer");
+        //         clearTimeout(timerId);
+        //         // clearTimeout = 타이머를 종료시킴
+        //     }
+        // },30)
+
+        // 값으로 함수객체, 숫자 두 가지가 들어감
+        // 뒤의 숫자 ms마다 함수객체 실행 (시간 먼저 흐르고 후에 함수 실행)
+        // 즉, 시간을 재주는 개념과 같아짐 (=timer)
+        // 1sec = 1000
+    </script>    
+</body>
+</html>
