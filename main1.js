@@ -3,6 +3,7 @@
     // 공통 전역 변수 선언
     let yOffset = 0; // scroll좌표값
     let currentSection = 0; // 현재 섹션 값
+    let sectionYoffset = 0;
 
     // 섹션 정보들 배열(정보값은 object로)으로 선언해두기
 
@@ -13,9 +14,24 @@
             hMultiple : 5, // section-0의 일정 비율값
 
             objs : {
-                container : document.querySelector("#section-0")
+                container : document.querySelector("#section-0"),
                 // id가 section-0인 영역 obj에 할당해서 선언해두기
                 // 불변하면서 자주 쓰이는 값이기 때문에 obj로 할당
+
+                messageA : document.querySelector(".section0-message.a"),
+                messageB : document.querySelector(".section0-message.b"),
+                messageC : document.querySelector(".section0-message.c"),
+                messageD : document.querySelector(".section0-message.d")
+            },
+            vals : {
+                messageA_fade_in : [0, 1, {start:0.03, end:0.12}],
+                messageA_fade_out : [1, 0, {start:0.13, end:0.23}],
+                messageB_fade_in : [0, 1, {start:0.28, end:0.37}],
+                messageB_fade_out : [1, 0, {start:0.38, end:0.48}],
+                messageC_fade_in : [0, 1, {start:0.53, end:0.62}],
+                messageC_fade_out : [1, 0, {start:0.63, end:0.73}],
+                messageD_fade_in : [0, 1, {start:0.78, end:0.87}],
+                messageD_fade_out : [1, 0, {start:0.88, end:0.98}]
             }
         },
         {
@@ -111,11 +127,13 @@
         return section;
     }
 
+    // body에 show-section아이디 현재섹션값 넣어주는 함수
     const setBodyID = function(section)
     {
-        document.body.setAttribute("id", `show=section${section}`)
+        document.body.setAttribute("id", `show-section${section}`)
     }
 
+    // local-nav를 global-nav의 height이상이 되면 fixed로 설정
     const setLocalnavMenu = function()
     {
         if (yOffset > 44)
@@ -127,21 +145,131 @@
         }
     }
 
+    // 이전 섹션의 높이 구하는 함수
+    const getPrevSectionHeight = function()
+    {
+        let prevHeight = 0;
+        for (let i = 0; i < currentSection; i++)
+        {
+            prevHeight = prevHeight + sectionSet[i].height;
+        }
+        return prevHeight;
+    }
+
+    // opacity ratio 구하는 함수
+    const calcValue = function(values)
+    {
+        let result = 0;
+
+        const cur_height = sectionSet[currentSection].height;
+
+        let partStart = 0;
+        let partEnd = 0;
+        let partHeight = 0;
+        let ratio = 0;
+
+        partStart = values[2].start * cur_height;
+        partEnd = values[2].end * cur_height;
+        partHeight = partEnd - partStart;
+
+        if (sectionYoffset < partStart)
+        {
+            result = values[0];
+        }
+        else if (sectionYoffset > partEnd)
+        {
+            result = values[1];
+        }
+        else
+        {
+            ratio = (sectionYoffset - partStart) / partHeight;
+            result = ((values[1] - values[0]) * ratio) + values[0];
+        }
+        return result;
+    }
+
+    // 애니메이션 구동 함수 선언
+    const playAnimation = function()
+    {
+        let opacity = 0;
+
+        let scrollRate = sectionYoffset / sectionSet[currentSection].height;
+        let values = sectionSet[currentSection].vals;
+        let objects = sectionSet[currentSection].objs;
+
+        switch(currentSection)
+        {
+            case 0:
+                if (scrollRate < 0.13)
+                {
+                    opacity = calcValue(values.messageA_fade_in);
+                    objects.messageA.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.13) && (scrollRate < 0.25))
+                {
+                    opacity = calcValue(values.messageA_fade_out);
+                    objects.messageA.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.25) && (scrollRate < 0.38))
+                {
+                    opacity = calcValue(values.messageB_fade_in);
+                    objects.messageB.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.38) && (scrollRate < 0.5))
+                {
+                    opacity = calcValue(values.messageB_fade_out);
+                    objects.messageB.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.5) && (scrollRate < 0.63))
+                {
+                    opacity = calcValue(values.messageC_fade_in);
+                    objects.messageC.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.63) && (scrollRate < 0.75))
+                {
+                    opacity = calcValue(values.messageC_fade_out);
+                    objects.messageC.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.75) && (scrollRate < 0.88))
+                {
+                    opacity = calcValue(values.messageD_fade_in);
+                    objects.messageD.style.opacity = opacity;
+                }
+                else if ((scrollRate >= 0.88) && (scrollRate < 1))
+                {
+                    opacity = calcValue(values.messageD_fade_out);
+                    objects.messageD.style.opacity = opacity;
+                }
+                break;
+            case 1:
+                break;
+            default:
+                console.error("[ERROR]playAnimation()");
+                break;
+
+        }
+    }
+
+
     /////////// Event Listener 설정 /////////
 
     // scroll값에 따라 섹션을 구분해줄 수 있도록 
     // scroll값을 받아 함수에 넣어주는 이벤트 리스너
     window.addEventListener('scroll',()=>{
-        yOffset = window.screenY;
+        yOffset = window.scrollY;
         // yOffset값에 window y축 스크롤값을 배정
 
         currentSection = getCurrentSection1();
+
+        // sectionYoffset값을 구한다
+        sectionYoffset = yOffset - getPrevSectionHeight();
 
         // // 확인용 
         // console.log(`yOffset = ${yOffset}, section = ${currentSection}`);
         setBodyID(currentSection);
         setLocalnavMenu();
     
+        playAnimation();
     });
 
     // 페이지의 모든 리소스가 로딩이 완료가 됐을 때 (첫로드,새로고침 등)

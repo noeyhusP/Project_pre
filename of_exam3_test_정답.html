@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            height : 2300px;
+            /* padding: 0;
+            margin: 0; */
+            /* 스크롤 계산할 때 padding, margin값도 포함 및 고려해야 함 */
+
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="first">온전히 빠져들게 하는 빛깔</h1>
+    <!-- <h1 class="second">나의 건강을 채워주는 향기</h1> -->
+
+    <script>
+        const $h1 = document.querySelector("h1");
+        let yOffset= 0;
+        let sectionYOffset = 0;
+        let bodyHeight = 0;
+        bodyHeight = document.body.scrollHeight - window.innerHeight;
+        // let amt_start = 0;
+        // let amt_end = 0;
+        // let amt_yOffset = 0;
+        // let amt_ratio = 0; 
+        let opacity_fade_out = [1, 0, {start:0.02, end:0.23}];
+
+        let partStart = opacity_fade_out[2].start * bodyHeight;
+        let partEnd = opacity_fade_out[2].end * bodyHeight;
+        let partHeight = partEnd - partStart;
+
+        // console.log(partStart,partEnd,partHeight);
+
+        // 실제 스크롤 범위 = 0.2 ~ 0.23
+
+        // 전체 스크롤의 높이를 구함
+
+        // console.log("바디(컨텐츠)의 높이 = ", bodyHeight);
+
+        // 사용할 값들 배열로 넣어줌 / 적용할 섹션의 애니메이션 시작범위는 객체로 넣어줌
+
+        // console.log("opacity 시작값 : " + opacity_fade_out[0]);
+        // console.log("opacity 끝값 : " + opacity_fade_out[1]);
+        // console.log("애니메이션 시작위치 : " + opacity_fade_out[2].start);
+        // console.log("애니메이션 끝위치 : " + opacity_fade_out[2].end);
+
+        // fade_out구동 함수 
+        // value = opacity_fade_out[2] (amt객체배열값)
+        // const amt_fade_out = function(value) 
+        // {   
+        //     amt_start = bodyHeight * value.start;
+        //     amt_end = bodyHeight * value.end;
+        //     amt_yOffset = sectionYOffset - amt_start; 
+        //     // 애니메이션 범위 안에서의 yOffset
+        //     amt_ratio = amt_yOffset / (amt_start-amt_end); 
+        //     // 애니메이션 구동 범위 안에서 yOffset값 위치의 비율을 구함
+        // }
+
+        // // CSS기능 범위 구하는 함수 
+        // const css_range = function(start,end)
+        //     {
+        //         let range = start - end;
+        //         return range;
+        //     }
+
+        // scroll이벤트 
+        window.addEventListener("scroll",()=>{
+
+            let partOffset = 0;
+            let opacityValue = 0;
+            let ratio = 0;
+            yOffset = window.scrollY;
+            // section이 여러개일 때를 가정해서 선언
+            sectionYOffset = yOffset;
+
+            if((sectionYOffset >= partStart) && (sectionYOffset <= partEnd))
+            {
+                partOffset = sectionYOffset - partStart;
+                console.log(partOffset);
+                ratio = partOffset / partHeight;
+
+                opacityValue = (opacity_fade_out[1] - opacity_fade_out[0]) * ratio + opacity_fade_out[0];
+
+                console.log(opacityValue);
+            }
+            $h1.style.opacity = opacityValue;
+
+        });
+
+    </script>
+</body>
+</html>

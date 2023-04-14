@@ -114,16 +114,16 @@ footer {
 각각 따로의 클래스로 인식해서 설정 가능 */
 
 .section0-message {
-    /* opacity: 0; */
+    opacity: 0;
     font-size: 4.5rem;
     font-weight: bold;
     text-align: center;
 
     width: 100%;
-    height: 6rem;
+    height: 6em;
 
     left: 0;
-    top: 7.5em;
+    top: 5em;
 
 }
 

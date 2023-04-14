@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height : 2300px;
+            /* padding: 0;
+            margin: 0; */
+            /* 스크롤 계산할 때 padding, margin값도 포함 및 고려해야 함 */
+
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>온전히 빠져들게 하는 빛깔</h1>
+
+    <script>
+        const $h1 = document.querySelector("h1");
+        let yOffset= 0;
+        let sectionYOffset = 0;
+        let bodyHeight = 0;
+        let amt_start = 0;
+        let amt_end = 0;
+        let amt_yOffset = 0;
+        let amt_ratio = 0; 
+
+        // 실제 스크롤 범위 = 0.2 ~ 0.23
+
+        // 전체 스크롤의 높이를 구함
+        bodyHeight = document.body.scrollHeight - window.innerHeight;
+        // console.log("바디(컨텐츠)의 높이 = ", bodyHeight);
+
+        // 사용할 값들 배열로 넣어줌 / 적용할 섹션의 애니메이션 시작범위는 객체로 넣어줌
+        let opacity_fade_out = [1, 0, {start:0.02, end:0.23}];
+
+        // console.log("opacity 시작값 : " + opacity_fade_out[0]);
+        // console.log("opacity 끝값 : " + opacity_fade_out[1]);
+        // console.log("애니메이션 시작위치 : " + opacity_fade_out[2].start);
+        // console.log("애니메이션 끝위치 : " + opacity_fade_out[2].end);
+
+        // 1. fade_out구동 함수 
+        // value = opacity_fade_out[2] (amt객체배열값)
+        const amt_fade_out = function(value) 
+        {   
+            amt_start = bodyHeight * value.start;
+            amt_end = bodyHeight * value.end;
+            amt_yOffset = sectionYOffset - amt_start; 
+            // 애니메이션 범위 안에서의 yOffset
+            amt_ratio = amt_yOffset / (amt_start-amt_end); 
+            // 애니메이션 구동 범위 안에서 yOffset값 위치의 비율을 구함
+        }
+
+        // 2. CSS기능 범위 구하는 함수 
+        const css_range = function(start,end)
+            {
+                let range = start - end;
+                return range;
+            }
+
+        // scroll이벤트 
+        window.addEventListener("scroll",()=>{
+            yOffset = window.scrollY;
+            // section이 여러개일 때를 가정해서 선언
+            sectionYOffset = yOffset;
+
+            // fade_out 함수 실행해서 amt_ratio 구하고
+            amt_fade_out(opacity_fade_out[2]);
+             
+            // 구해진 atm_ratio를 opacity의 범위에 적용시켜서 같은 값으로 구동되게 한다
+            let opacityValue = (css_range(opacity_fade_out[0],opacity_fade_out[1]) * amt_ratio) + opacity_fade_out[0];
+            $h1.style.opacity = opacityValue;
+
+            // console.log("opacityValue : ",opacityValue);
+            // console.log("sectionYOffset : ",sectionYOffset);
+
+        });
+
+    </script>
+</body>
+</html>
