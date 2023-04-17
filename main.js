@@ -32,9 +32,34 @@
             // 자주 쓰일 값이니까 쓰기 편하게 객체에 할당함
             // section0, section1 그리고 그 안의 값들이 다 다르면서
             // 고유하기 때문에 object의 값으로 넣어주는 것
+            // 각 문장에 translateY 값도 넣어줌
             vals : {
-                messageA_fade_in : [0, 1, {start:0.03, end:0.12}],
-                messageA_fade_out : [1, 0, {start:0.13 , end:0.23}],
+                // messageA 섹션 값 (0-0.12/0.13-0.25)
+                messageA_fade_in : [0, 1, {start:0.02, end:0.11}],
+                messageA_fade_out : [1, 0, {start:0.12, end:0.21}],
+                messageA_translate_in : [0, -20, {start:0.02, end:0.11}],
+                messageA_translate_out : [-20, -40, {start:0.12, end:0.21}],
+
+                // messageB 섹션 값 (0.25-0.37/0.38-0.5)
+                messageB_fade_in : [0, 1, {start:0.25, end:0.34}],
+                messageB_fade_out : [1, 0, {start:0.35, end:0.44}],
+                messageB_translate_in : [0, -20, {start:0.25, end:0.34}],
+                messageB_translate_out : [-20, -40, {start:0.35, end:0.44}],
+
+                // messageC 섹션 값 (0.5-0.62/0.63-0.75)
+                messageC_fade_in : [0, 1, {start:0.48, end:0.57}],
+                messageC_fade_out : [1, 0, {start:0.58, end:0.67}],
+                messageC_translate_in : [0, -20, {start:0.48, end:0.57}],
+                messageC_translate_out : [-20, -40, {start:0.58, end:0.67}],
+
+                // messageD 섹션 값 (0.75-0.87/0.88-1.0)
+                messageD_fade_in : [0, 1, {start:0.71, end:0.80}],
+                messageD_fade_out : [1, 0, {start:0.81, end:0.90}],
+                messageD_translate_in : [0, -20, {start:0.71, end:0.80}],
+                messageD_translate_out : [-20, -40, {start:0.81, end:0.90}],
+
+                // 범위 전체 설정
+                messageA_fade_out_All : [1, 0]
             }
         },
 
@@ -193,6 +218,8 @@
     const calcValue = function(values)
     {
         let result = 0; // return할 값 초기화
+        let ratio = 0;
+        // let transValue = 0;
 
         // 현재섹션의 높이 구하기
         const cur_height = sectionSet[currentSection].height;
@@ -201,50 +228,84 @@
         let partStart = 0;
         let partEnd = 0;
         let partHeight = 0;
-        let ratio = 0;
 
-        // 애니메이션이 시작되는 지점
-        partStart  = values[2].start * cur_height;
-        // 애니메이션이 끝나는 지점
-        partEnd    = values[2].end * cur_height;
-        // 애니메이션이 구동되는 범위(길이)
-        partHeight = partEnd - partStart;
+        // // if문으로 비율에 따른 opacity의 값 계산해서 리턴하기
+        // if (sectionYoffset < partStart)
+        // // 시작지점값보다 현재 yOffset이 작으면
+        // {
+        //     result = values[0];
+        //     // ex) 글자가 보이면 안 되는 구현이면 
+        //     // opacity 0을 반환해서 안 보이게 하기
 
-        // if문으로 비율에 따른 opacity의 값 계산해서 리턴하기
-        if (sectionYoffset < partStart)
-        // 시작지점값보다 현재 yOffset이 작으면
-        {
-            result = values[0];
-            // ex) 글자가 보이면 안 되는 구현이면 
-            // opacity 0을 반환해서 안 보이게 하기
+        // }
+        // else if (sectionYoffset > partEnd)
+        // {
+        //     result = values[1];
+        //     // ex) 글자가 보이든 안 보이든 이미 끝까지 차오른 상태를 
+        //     // opacity 0 or 1을 반환해서 유지시키기
+        //     // (어짜피 그 다음과정에서 다시 사라지든 보이든 하게 되니까)
 
-        }
-        else if (sectionYoffset > partEnd)
-        {
-            result = values[1];
-            // ex) 글자가 보이든 안 보이든 이미 끝까지 차오른 상태를 
-            // opacity 0 or 1을 반환해서 유지시키기
-            // (어짜피 그 다음과정에서 다시 사라지든 보이든 하게 되니까)
-
-        }
-        else 
-        {
-            // 비율 구하기 : 현재 yOffset에서 시작값을 뺀 값으로 
-            // 애니메이션 총 길이값 나눠주기 
-            ratio = (sectionYoffset - partStart) / partHeight;
-            result = ((values[1] - values[0]) * ratio) + values[0];
-            // opacity의 총 범위에 구한 비율을 곱하고 opacity의 시작값을
-            // 더해서 애니메이션 비율과 opacity의 비율 맞춰주기
-        }
-        return result;
+        // }
+        // else 
+        // {
+        //     // 비율 구하기 : 현재 yOffset에서 시작값을 뺀 값으로 
+        //     // 애니메이션 총 길이값 나눠주기 
+        //     ratio = (sectionYoffset - partStart) / partHeight;
+        //     result = ((values[1] - values[0]) * ratio) + values[0];
+        //     // opacity의 총 범위에 구한 비율을 곱하고 opacity의 시작값을
+        //     // 더해서 애니메이션 비율과 opacity의 비율 맞춰주기
+        // }
+        // return result;
         // 현재 yOffset 비율에 맞춰진 opacity 비율을 result로 리턴
 
+        // ---------------------------------------------------------------------------------------
+
+        // value.length에 따라 다르게 if else로 작동하게 하기
+
+        if (values.length === 2)
+        {
+            // 1. 비율을 구한다
+            ratio = (sectionYoffset / cur_height);
+
+            // 2. 비율에 따른 CSS값을 구한다
+            result = ((values[1] - values[0]) * ratio) + values[0];
+        }
+        else if (values.length === 3)
+        {
+            // 애니메이션이 시작되는 지점
+            partStart  = values[2].start * cur_height;
+            // 애니메이션이 끝나는 지점
+            partEnd    = values[2].end * cur_height;
+            // 애니메이션이 구동되는 범위(길이)
+            partHeight = partEnd - partStart;
+
+            if (sectionYoffset < partStart)
+            {
+                result = values[0];
+            }
+            else if (sectionYoffset > partEnd)
+            {
+                result = values[1];
+            }
+            else 
+            {
+                ratio = (sectionYoffset - partStart) / partHeight;
+                result = ((values[1] - values[0]) * ratio) + values[0];
+                
+            }
+            return result;
+        }
+        else
+        {
+            console.error("[ERROR] calcValue(), invalid parameter")
+        }
     }
 
     // 애니메이션 가동 함수 선언
     const playAnimation = function()
     {
         let opacity = 0;
+        let transValue = 0;
 
         // 스크롤 비율 구하기(0-1사이의 값)
         // 현재 yOffset값을 현재 섹션의 총 길이로 나눠주기
@@ -258,29 +319,92 @@
         switch(currentSection)
         {
             case 0:
-                if (scrollRate < 0.13) // messageA의 애니메이션 범위 1
+                // opacity가 fade_out 될 때 스크롤 속도가 빠르면 최소값으로 0을 제대로 못 불러오기 때문에
+                // 잔상이 남으므로 opacity값을 처음부터 0으로 초기화 해주고 시작하기
+                // if문을 돌 때 초기값 0으로 시작하기 때문에 잔상 없어짐
+                objects.messageA.style.opacity = 0;
+                objects.messageB.style.opacity = 0;
+                objects.messageC.style.opacity = 0;
+                objects.messageD.style.opacity = 0;   
+                // opacity = calcValue([1, 0]);
+                // objects.messageA.style.opacity = opacity;
+                // console.log(opacity);
+
+                // @@ messageA
+                if (scrollRate < 0.12) // messageA의 애니메이션 범위 1
                 {
                     // fade-in 처리를 한다 
                     // [0, 1, {start:0.03, end:0.12}]
 
-                    // calcValue함수로 구한 opacity의 비율을 opacity 변수에 할당
+                    // calcValue함수로 구한 opacity의 비율을 transValue, opacity 변수에 각각 할당
                     opacity = calcValue(sectionSet[currentSection].vals.messageA_fade_in);
+                    transValue = calcValue(sectionSet[currentSection].vals.messageA_translate_in);
                     // = opacity = calcValue(values.messageA_fade_in);
 
-                    // style시트에 해당 섹션에 opacity값 넣어주기
+                    // style시트에 해당 섹션에 opacity값, transValue값 넣어주기
                     sectionSet[currentSection].objs.messageA.style.opacity = opacity;
+                    sectionSet[currentSection].objs.messageA.style.transform = `translateY(${transValue}%)`;
                     // = objects.messageA.style.opacity = opacity;
 
                 }
-                else if ((scrollRate >= 0.13) && (scrollRate < 0.25))
+                else if ((scrollRate >= 0.12) && (scrollRate < 0.23))
                 // messageA의 애니메이션 범위 2
                 {
                     // fade-out 처리를 한다
                     // [0, 1, {start:0.13, end:0.23}]
                     opacity = calcValue(values.messageA_fade_out);
+                    transValue = calcValue(values.messageA_translate_out);
                     objects.messageA.style.opacity = opacity;
+                    objects.messageA.style.transform = `translateY(${transValue}%)`;
                 }
-                // console.log("0번 섹션의 애니메이션이 돌고 있어요");
+
+                // @@ messageB
+                else if ((scrollRate >= 0.23) && (scrollRate < 0.35))
+                {
+                    opacity = calcValue(values.messageB_fade_in);
+                    transValue = calcValue(values.messageB_translate_in);
+                    objects.messageB.style.opacity = opacity;
+                    objects.messageB.style.transform = `translateY(${transValue}%)`;
+                }
+                else if ((scrollRate >= 0.35) && (scrollRate < 0.46))
+                {
+                    opacity = calcValue(values.messageB_fade_out);
+                    transValue = calcValue(values.messageB_translate_out);
+                    objects.messageB.style.opacity = opacity;
+                    objects.messageB.style.transform = `translateY(${transValue}%)`;
+                }
+
+                // @@ messageC
+                else if ((scrollRate >= 0.46) && (scrollRate < 0.58))
+                {
+                    opacity = calcValue(values.messageC_fade_in);
+                    transValue = calcValue(values.messageC_translate_in);
+                    objects.messageC.style.opacity = opacity;
+                    objects.messageC.style.transform = `translateY(${transValue}%)`;
+                }
+                else if ((scrollRate >= 0.58) && (scrollRate < 0.69))
+                {
+                    opacity = calcValue(values.messageC_fade_out);
+                    transValue = calcValue(values.messageC_translate_out);
+                    objects.messageC.style.opacity = opacity;
+                    objects.messageC.style.transform = `translateY(${transValue}%)`;
+                }
+
+                // @@ messageD
+                else if ((scrollRate >= 0.69) && (scrollRate < 0.81))
+                {
+                    opacity = calcValue(values.messageD_fade_in);
+                    transValue = calcValue(values.messageD_translate_in);
+                    objects.messageD.style.opacity = opacity;
+                    objects.messageD.style.transform = `translateY(${transValue}%)`;
+                }
+                else if ((scrollRate >= 0.81) && (scrollRate < 0.92))
+                {
+                    opacity = calcValue(values.messageD_fade_out);
+                    transValue = calcValue(values.messageD_translate_out);
+                    objects.messageD.style.opacity = opacity;
+                    objects.messageD.style.transform = `translateY(${transValue}%)`;
+                }
                 break;
             case 1:
                 console.log("1번 섹션의 애니메이션이 돌고 있어요");
@@ -307,7 +431,7 @@
         //sectionYoffset 을 구한다
         sectionYoffset = yOffset - getPrevSectionHeight();
         // yOffset - 이전섹션의 yOffset
-        console.log(" sectionYoffset = " + sectionYoffset);
+        // console.log(" sectionYoffset = " + sectionYoffset);
 
         // CSS 변경
         setBodyID(currentSection);

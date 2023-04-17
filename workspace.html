@@ -6,90 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
+         body {
             height : 2300px;
             /* padding: 0;
             margin: 0; */
             /* 스크롤 계산할 때 padding, margin값도 포함 및 고려해야 함 */
 
         }
-        h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            position: fixed;
-            left: 0;
-            top: 200px;
-        }
     </style>
 </head>
 <body>
-
-    <h1 class="first">온전히 빠져들게 하는 빛깔</h1>
-    <h1 class="second">나의 건강을 채워주는 향기</h1>
-
+    <canvas id="canvas" width="1920" height="1080"></canvas>
     <script>
-        const $h1_first = document.querySelector(".first");
-        const $h1_second = document.querySelector(".second");
-        let yOffset= 0;
-        let sectionYOffset = 0;
-        let bodyHeight = 0;
-        let amt_start = 0;
-        let amt_end = 0;
-        let amt_yOffset = 0;
-        let amt_ratio = 0; 
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
 
-        // 실제 스크롤 범위 = 0.2 ~ 0.23
+        const imgCount = 570;
+        let imgElement;
+        let imgArray = [];
 
-        // 전체 스크롤의 높이를 구함
-        bodyHeight = document.body.scrollHeight - window.innerHeight;
-        // console.log("바디(컨텐츠)의 높이 = ", bodyHeight);
+        for (let i = 0; i < imgCount; i++)
+        {
+            imgElement = new Image(); 
+            imgElement.src = `./image/apple_${i}.png`;
+            console.log(`./image/apple_${i}.png`);
 
-        // 사용할 값들 배열로 넣어줌 / 적용할 섹션의 애니메이션 시작범위는 객체로 넣어줌
-        let opacity_fade_out = [1, 0, {start:0.02, end:0.23},{start:0.27, end:0.48}];
+            imgArray.push(imgElement);
+            // 각 img객체들에 접근할 수 있도록 imgArray 생성해줌
 
-        // console.log("opacity 시작값 : " + opacity_fade_out[0]);
-        // console.log("opacity 끝값 : " + opacity_fade_out[1]);
-        // console.log("애니메이션 시작위치 : " + opacity_fade_out[2].start);
-        // console.log("애니메이션 끝위치 : " + opacity_fade_out[2].end);
-
-        // fade_out구동 함수 
-        // value = opacity_fade_out[2] (amt객체배열값)
-        const amt_fade_out = function(value) 
-        {   
-            amt_start = bodyHeight * value.start;
-            amt_end = bodyHeight * value.end;
-            amt_yOffset = sectionYOffset - amt_start; 
-            // 애니메이션 범위 안에서의 yOffset
-            amt_ratio = amt_yOffset / (amt_start-amt_end); 
-            // 애니메이션 구동 범위 안에서 yOffset값 위치의 비율을 구함
         }
 
-        // CSS기능 범위 구하는 함수 
-        const css_range = function(start,end)
-            {
-                let range = start - end;
-                return range;
-            }
-
-        // scroll이벤트 
-        window.addEventListener("scroll",()=>{
-            yOffset = window.scrollY;
-            // section이 여러개일 때를 가정해서 선언
-            sectionYOffset = yOffset;
-
-            // fade_out 함수 실행해서 amt_ratio 구하고
-            amt_fade_out(opacity_fade_out[2]);
-            amt_fade_out(opacity_fade_out[3]);
-             
-            // 구해진 atm_ratio를 opacity의 범위에 적용시켜서 같은 값으로 구동되게 한다
-            let first_opacityValue = (css_range(opacity_fade_out[0],opacity_fade_out[1]) * amt_ratio) + opacity_fade_out[0];
-            let second_opacityValue = (css_range(opacity_fade_out[0],opacity_fade_out[1]) * amt_ratio) + opacity_fade_out[0];
-            $h1_first.style.opacity = first_opacityValue;
-
-            // console.log("opacityValue : ",opacityValue);
-            // console.log("sectionYOffset : ",sectionYOffset);
+        imgElement.addEventListener('load',()=>{
+            ctx.drawImage(imgArray[0], 0, 0);
+            // 0,0 값은 left, top
 
         });
+
+        imgIndex = 0;
+
+        const apple_turn = function(sectionYoffset){
+
+        ctx.drawImage(imgArray[imgIndex], 0, 0);
+        // 0,0 값은 left, top
+        // console.log(imgIndex);
+        imgIndex ++;    
+
+        if (imgIndex === sectionYoffset)
+        {
+            imgIndex = 0;
+        }};
+
+        const getCurrentSection = function()
+        {
+            // scroll값 = yOffset 
+            let segment = [
+                sectionSet[0].height
+            ];
+            // 섹션이 많아지면 섹션을 나누는 값이 많아지니까 배열이 필요해짐
+            if (yOffset <= sectionSet[0].height)
+            {
+                section = 0;
+            }
+            else
+            {
+                section = 1;
+            }
+
+            return section;
+
+        }
+
+        const getPrevSectionHeight = function ()
+        {
+            let prevHeight = 0;
+            // section 0 일 때는 안 돌고 1일 때는 그 section의 height만 리턴함
+            for (let i = 0; i < currentSection; i++)
+            {
+                prevHeight = prevHeight + sectionSet[i].height;
+            }
+
+            return prevHeight;
+        }
+
+        window.addEventListener('scroll', ()=>{
+        // 1. 레이아웃을 다시 잡는다
+        yOffset = window.scrollY;
+        // console.log("yOffset = " + yOffset);
+
+        // 2. 현재 섹션값을 다시 가져온다
+        currentSection = getCurrentSection();
+        // 이용한 함수로 대입해줌
+        // console.log(`yOffset = ${yOffset}, section = ${currentSection}`);
+
+        //sectionYoffset 을 구한다
+        sectionYoffset = yOffset - getPrevSectionHeight();
+        // yOffset - 이전섹션의 yOffset
+        // console.log(" sectionYoffset = " + sectionYoffset);
+
+        apple_turn(sectionYoffset);
+
+        // CSS 변경
+        // setBodyID(currentSection);
+        // setLocalnavMenu();
+
+        // playAnimation();
+    });
 
     </script>
 </body>

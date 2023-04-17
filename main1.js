@@ -24,14 +24,30 @@
                 messageD : document.querySelector(".section0-message.d")
             },
             vals : {
-                messageA_fade_in : [0, 1, {start:0.03, end:0.12}],
-                messageA_fade_out : [1, 0, {start:0.13, end:0.23}],
-                messageB_fade_in : [0, 1, {start:0.28, end:0.37}],
-                messageB_fade_out : [1, 0, {start:0.38, end:0.48}],
-                messageC_fade_in : [0, 1, {start:0.53, end:0.62}],
-                messageC_fade_out : [1, 0, {start:0.63, end:0.73}],
-                messageD_fade_in : [0, 1, {start:0.78, end:0.87}],
-                messageD_fade_out : [1, 0, {start:0.88, end:0.98}]
+                // meassageA
+                messageA_fade_in : [0, 1, {start:0.02, end:0.11}],
+                messageA_fade_out : [1, 0, {start:0.12, end:0.21}],
+                messageA_translate_in : [0, -20, {start:0.02, end:0.11}],
+                messageA_translate_out : [-20, -40, {start:0.12, end:0.21}],
+
+
+                // messageB
+                messageB_fade_in : [0, 1, {start:0.25, end:0.34}],
+                messageB_fade_out : [1, 0, {start:0.35, end:0.44}],
+                messageB_translate_in : [0, -20, {start:0.25, end:0.34}],
+                messageB_translate_out : [-20, -40, {start:0.35, end:0.44}],
+
+                // messageC
+                messageC_fade_in : [0, 1, {start:0.48, end:0.57}],
+                messageC_fade_out : [1, 0, {start:0.58, end:0.67}],
+                messageC_translate_in : [0, -20, {start:0.48, end:0.57}],
+                messageC_translate_out : [-20, -40, {start:0.58, end:0.67}],
+
+                // messageD
+                messageD_fade_in : [0, 1, {start:0.71, end:0.80}],
+                messageD_fade_out : [1, 0, {start:0.81, end:0.90}],
+                messageD_translate_in : [0, -20, {start:0.71, end:0.80}],
+                messageD_translate_out : [-20, -40, {start:0.81, end:0.90}],
             }
         },
         {
@@ -168,30 +184,39 @@
         let partHeight = 0;
         let ratio = 0;
 
-        partStart = values[2].start * cur_height;
-        partEnd = values[2].end * cur_height;
-        partHeight = partEnd - partStart;
-
-        if (sectionYoffset < partStart)
+        if (values.length === 2)
         {
-            result = values[0];
-        }
-        else if (sectionYoffset > partEnd)
-        {
-            result = values[1];
-        }
-        else
-        {
-            ratio = (sectionYoffset - partStart) / partHeight;
+            ratio = (sectionYoffset / cur_height);
             result = ((values[1] - values[0]) * ratio) + values[0];
         }
-        return result;
+        else if (values.length === 3)
+        {
+            partStart = values[2].start * cur_height;
+            partEnd = values[2].end * cur_height;
+            partHeight = partEnd - partStart;
+
+            if (sectionYoffset < partStart)
+            {
+                result = values[0];
+            }
+            else if (sectionYoffset > partEnd)
+            {
+                result = values[1];
+            }
+            else
+            {
+                ratio = (sectionYoffset - partStart) / partHeight;
+                result = ((values[1] - values[0]) * ratio) + values[0];
+            }
+            return result;
+        }
     }
 
     // 애니메이션 구동 함수 선언
     const playAnimation = function()
     {
         let opacity = 0;
+        let transValue = 0;
 
         let scrollRate = sectionYoffset / sectionSet[currentSection].height;
         let values = sectionSet[currentSection].vals;
@@ -200,45 +225,67 @@
         switch(currentSection)
         {
             case 0:
-                if (scrollRate < 0.13)
+                objects.messageA.style.opacity = 0;
+                objects.messageB.style.opacity = 0;
+                objects.messageC.style.opacity = 0;
+                objects.messageD.style.opacity = 0;
+
+                if (scrollRate < 0.12)
                 {
                     opacity = calcValue(values.messageA_fade_in);
+                    transValue = calcValue(values.messageA_translate_in);
                     objects.messageA.style.opacity = opacity;
+                    objects.messageA.style.transform = `translateY(${transValue}%)`;
+
                 }
-                else if ((scrollRate >= 0.13) && (scrollRate < 0.25))
+                else if ((scrollRate >= 0.12) && (scrollRate < 0.23))
                 {
                     opacity = calcValue(values.messageA_fade_out);
+                    transValue = calcValue(values.messageA_translate_out);
                     objects.messageA.style.opacity = opacity;
+                    objects.messageA.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.25) && (scrollRate < 0.38))
+                else if ((scrollRate >= 0.23) && (scrollRate < 0.35))
                 {
                     opacity = calcValue(values.messageB_fade_in);
+                    transValue = calcValue(values.messageB_translate_in);
                     objects.messageB.style.opacity = opacity;
+                    objects.messageB.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.38) && (scrollRate < 0.5))
+                else if ((scrollRate >= 0.35) && (scrollRate < 0.46))
                 {
                     opacity = calcValue(values.messageB_fade_out);
+                    transValue = calcValue(values.messageB_translate_out);
                     objects.messageB.style.opacity = opacity;
+                    objects.messageB.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.5) && (scrollRate < 0.63))
+                else if ((scrollRate >= 0.46) && (scrollRate < 0.58))
                 {
                     opacity = calcValue(values.messageC_fade_in);
+                    transValue = calcValue(values.messageC_translate_in);
                     objects.messageC.style.opacity = opacity;
+                    objects.messageC.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.63) && (scrollRate < 0.75))
+                else if ((scrollRate >= 0.58) && (scrollRate < 0.69))
                 {
                     opacity = calcValue(values.messageC_fade_out);
+                    transValue = calcValue(values.messageC_translate_out);
                     objects.messageC.style.opacity = opacity;
+                    objects.messageC.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.75) && (scrollRate < 0.88))
+                else if ((scrollRate >= 0.69) && (scrollRate < 0.81))
                 {
                     opacity = calcValue(values.messageD_fade_in);
+                    transValue = calcValue(values.messageD_translate_in);
                     objects.messageD.style.opacity = opacity;
+                    objects.messageD.style.transform = `translateY(${transValue}%)`;
                 }
-                else if ((scrollRate >= 0.88) && (scrollRate < 1))
+                else if ((scrollRate >= 0.81) && (scrollRate < 0.92))
                 {
                     opacity = calcValue(values.messageD_fade_out);
+                    transValue = calcValue(values.messageD_translate_out);
                     objects.messageD.style.opacity = opacity;
+                    objects.messageD.style.transform = `translateY(${transValue}%)`;
                 }
                 break;
             case 1:

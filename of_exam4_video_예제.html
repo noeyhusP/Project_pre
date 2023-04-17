@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>button</button>
+
+    <!-- 캔버스로 캡쳐이미지 비디오처럼 넣기 -->
+    <canvas id="canvas" width="1920" height="1080">
+        <!-- 캔버스에 width랑 height는 기본적으로 지정해주는 게 좋음 -->
+    </canvas>
+
+    <script>
+
+
+        // 1. 캔버스 및 context를 가지고 온다
+        const $btn = document.querySelector("button");
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d'); // d 대소문자 유의!!
+
+        const imgCount = 570;
+        let imgElement;
+        let imgArray = [];
+        // imgElement의 참조값을 배열로 만듦
+
+        // 2. for문으로 이미지를 불러와서 배열에다 넣는다
+        for (let i = 0; i < imgCount; i++)
+        {
+            imgElement = new Image(); 
+            imgElement.src = `./image/apple_${i}.png`;
+            console.log(`./image/apple_${i}.png`);
+
+            imgArray.push(imgElement);
+            // 각 img객체들에 접근할 수 있도록 imgArray 생성해줌
+
+        }
+
+        imgElement.addEventListener('load',()=>{
+            ctx.drawImage(imgArray[0], 0, 0);
+            // 0,0 값은 left, top
+
+        });
+
+        // timer로 이미지 바뀌게 하기
+
+        imgIndex = 0;
+
+        // 방법 1
+        // const timerId = setInterval(()=>{
+
+        // ctx.drawImage(imgArray[imgIndex], 0, 0);
+        // // console.log(imgIndex);
+        // imgIndex ++;    
+
+        // if (imgIndex === 570)
+        // {
+        //     imgIndex = 0;
+        // }  
+        // },30);
+
+        // 방법2
+        const apple_turn = function(){
+
+        ctx.drawImage(imgArray[imgIndex], 0, 0);
+        // 0,0 값은 left, top
+        // console.log(imgIndex);
+        imgIndex ++;    
+
+        if (imgIndex === 570)
+        {
+            imgIndex = 0;
+        }};
+
+        let timerId = setInterval(apple_turn, 30); 
+        
+        // 버튼을 만들어서 정지
+        $btn.addEventListener('click',()=>
+        {
+            clearInterval(timerId)
+        });
+
+        // 버튼을 누르면 정지, 또 누르면 다시 돌기
+        let btn = true;
+        $btn.addEventListener('click',()=>
+        {
+            if (btn)
+            {
+                clearInterval(timerId)
+                btn = false;
+            }
+            else
+            {
+                timerId = setInterval(apple_turn, 30);
+                btn = true;
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
